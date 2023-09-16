@@ -1,10 +1,22 @@
 ---
+import { getCollection } from "astro:content";
 import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const areas = await getCollection("areas");
 
 interface Link {
   name: string;
   link: string;
   selected: (pathname: string) => boolean;
+  children?: Link[];
 }
 
 const links: Link[] = [
@@ -13,6 +25,11 @@ const links: Link[] = [
     name: "Climbing Areas",
     link: "/areas",
     selected: (pathname) => pathname.startsWith("/areas"),
+    children: areas.map((area) => ({
+      name: area.data.title,
+      link: `/areas/${area.slug}`,
+      selected: (pathname) => pathname.startsWith(`/areas/${area.slug}`),
+    })),
   },
   {
     name: "Resources",
@@ -30,7 +47,9 @@ const links: Link[] = [
 <header
   class="bg-card border-b shadow px-6 py-4 flex justify-between items-center"
 >
-  <h1>RockClimbPG</h1>
+  <a href="/">
+    <h1 class="text-xl">RockClimbPG</h1>
+  </a>
   <div class="flex gap-3">
     {
       links.map((link) => (
