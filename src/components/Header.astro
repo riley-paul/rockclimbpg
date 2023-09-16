@@ -12,7 +12,7 @@ import {
 import type { Link } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-const areas = await getCollection("areas");
+const areas = await getCollection("climbingAreas");
 
 const links: Link[] = [
   { name: "Home", link: "/", selected: (pathname) => pathname === "/" },

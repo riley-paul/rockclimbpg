@@ -8,11 +8,6 @@ type: Top-rope, mixed & gear
 climbs: 9 (5.5 - 5.10+)
 ---
 
-## Route Information
-
-- [5 Steps (Actually Ken's Route)](giscome/5-steps)
-- [Shady Side](giscome/shady-side)
-
 ## From Prince George
 
 1. Drive to Giscome

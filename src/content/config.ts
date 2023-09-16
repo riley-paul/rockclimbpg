@@ -1,6 +1,6 @@
-import { z, defineCollection } from "astro:content";
+import { z, reference, defineCollection } from "astro:content";
 
-const areas = defineCollection({
+const climbingAreas = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -13,4 +13,12 @@ const areas = defineCollection({
   }),
 });
 
-export const collections = { areas };
+const climbingRoutes = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    area: reference("climbingAreas"),
+  }),
+});
+
+export const collections = { climbingAreas, climbingRoutes };

@@ -5,15 +5,23 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const climbingAreas = await getCollection("areas");
+  const climbingAreas = await getCollection("climbingAreas");
   return climbingAreas.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { areaSlug: entry.slug },
     props: { entry },
   }));
 };
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+console.log(entry.slug)
+
+const climbingRoutes = await getCollection(
+  "climbingRoutes",
+  ({ data }) => data.area === entry.slug
+);
+console.log(climbingRoutes);
 ---
 
 <Layout>
@@ -22,5 +30,7 @@ const { Content } = await entry.render();
       {entry.data.title}
     </h1>
     <Content />
+    <h2>Routes</h2>
+    {climbingRoutes.map((route) => <div>{route.data.title}</div>)}
   </Markdown>
 </Layout>
