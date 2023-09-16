@@ -16,13 +16,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-console.log(entry.slug);
-
 const climbingRoutes = await getCollection(
   "climbingRoutes",
   ({ data }) => data.area.slug === entry.slug
 );
-console.log(climbingRoutes);
 ---
 
 <Layout>
