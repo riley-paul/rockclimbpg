@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import type { Link } from "@/lib/types";
+import { cn } from "@/lib/utils";
+
+const areas = await getCollection("areas");
+
+const links: Link[] = [
+  { name: "Home", link: "/", selected: (pathname) => pathname === "/" },
+  {
+    name: "Climbing Areas",
+    link: "/areas",
+    selected: (pathname) => pathname.startsWith("/areas"),
+    children: areas.map((area) => ({
+      name: area.data.title,
+      link: `/areas/${area.slug}`,
+      selected: (pathname) => pathname.startsWith(`/areas/${area.slug}`),
+    })),
+  },
+  {
+    name: "Resources",
+    link: "/resources",
+    selected: (pathname) => pathname.startsWith("/resources"),
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+    selected: (pathname) => pathname.startsWith("/contact"),
+  },
+];
+---
+
+<header
+  class="bg-card border-b shadow px-6 py-4 flex justify-between items-center"
+>
+  <a href="/">
+    <h1 class="text-xl">RockClimbPG</h1>
+  </a>
+  <ul class="flex gap-3">
+    {
+      links.map((link) => (
+        <li class="relative group">
+          <a href={link.link}>
+            <Button
+              variant={
+                link.selected(Astro.url.pathname) ? "default" : "secondary"
+              }
+            >
+              {link.name}
+            </Button>
+          </a>
+          {link.children && (
+            <div class="absolute hidden md:group-hover:flex bg-card shadow border flex-col p-1 min-w-[10rem]">
+              {link.children.map((child) => (
+                <a href={child.link}>
+                  <Button
+                    className="w-full justify-start"
+                    variant={
+                      child.selected(Astro.url.pathname) ? "secondary" : "ghost"
+                    }
+                  >
+                    {child.name}
+                  </Button>
+                </a>
+              ))}
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</header>
