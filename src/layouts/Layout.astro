@@ -1,6 +1,34 @@
 ---
-import Header from "@/components/Header.astro";
+import { Header } from "@/components/Header";
 import "@/globals.css";
+import type { Link } from "@/lib/types";
+import { getCollection } from "astro:content";
+
+const areas = await getCollection("areas");
+
+const links: Link[] = [
+  { name: "Home", link: "/", selected: (pathname) => pathname === "/" },
+  {
+    name: "Climbing Areas",
+    link: "/areas",
+    selected: (pathname) => pathname.startsWith("/areas"),
+    children: areas.map((area) => ({
+      name: area.data.title,
+      link: `/areas/${area.slug}`,
+      selected: (pathname) => pathname.startsWith(`/areas/${area.slug}`),
+    })),
+  },
+  {
+    name: "Resources",
+    link: "/resources",
+    selected: (pathname) => pathname.startsWith("/resources"),
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+    selected: (pathname) => pathname.startsWith("/contact"),
+  },
+];
 ---
 
 <html lang="en" class="">
@@ -10,7 +38,7 @@ import "@/globals.css";
     <title>Document</title>
   </head>
   <body class="flex flex-col">
-    <Header />
+    <Header client:load pathname={Astro.url.pathname} links={links} />
     <main class="flex-1 overflow-auto">
       <slot />
     </main>
