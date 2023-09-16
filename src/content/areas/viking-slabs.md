@@ -1,3 +1,0 @@
----
-title: Viking Slabs
----
