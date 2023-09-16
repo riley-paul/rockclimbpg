@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Markdown from "@/layouts/Markdown.astro";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
+import { ChevronLeft, ChevronLeftSquare } from "lucide-react";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
@@ -15,11 +16,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-console.log(entry.slug)
+console.log(entry.slug);
 
 const climbingRoutes = await getCollection(
   "climbingRoutes",
-  ({ data }) => data.area === entry.slug
+  ({ data }) => data.area.slug === entry.slug
 );
 console.log(climbingRoutes);
 ---
@@ -30,7 +31,21 @@ console.log(climbingRoutes);
       {entry.data.title}
     </h1>
     <Content />
-    <h2>Routes</h2>
-    {climbingRoutes.map((route) => <div>{route.data.title}</div>)}
+    {
+      climbingRoutes && (
+        <>
+          <h2>Routes</h2>
+          <ol>
+            {climbingRoutes.map((route) => (
+              <li>
+                <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                  {route.data.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
   </Markdown>
 </Layout>
