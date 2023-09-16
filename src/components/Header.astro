@@ -1,4 +1,6 @@
 ---
+import { Button } from "./ui/button";
+
 interface Link {
   name: string;
   link: string;
@@ -7,13 +9,41 @@ interface Link {
 
 const links: Link[] = [
   { name: "Home", link: "/", selected: (pathname) => pathname === "/" },
-  { name: "Home", link: "/", selected: (pathname) => pathname === "/" },
-  { name: "Home", link: "/", selected: (pathname) => pathname === "/" },
+  {
+    name: "Climbing Areas",
+    link: "/areas",
+    selected: (pathname) => pathname.startsWith("/areas"),
+  },
+  {
+    name: "Resources",
+    link: "/resources",
+    selected: (pathname) => pathname.startsWith("/resources"),
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+    selected: (pathname) => pathname.startsWith("/contact"),
+  },
 ];
 ---
 
-<header class="bg-card border-b shadow px-6 py-2">
-  RockClimbPG
-
-
+<header
+  class="bg-card border-b shadow px-6 py-4 flex justify-between items-center"
+>
+  <h1>RockClimbPG</h1>
+  <div class="flex gap-3">
+    {
+      links.map((link) => (
+        <a href={link.link}>
+          <Button
+            variant={
+              link.selected(Astro.url.pathname) ? "default" : "secondary"
+            }
+          >
+            {link.name}
+          </Button>
+        </a>
+      ))
+    }
+  </div>
 </header>
