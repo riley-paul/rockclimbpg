@@ -1,5 +1,5 @@
 ---
-import Header from "@/components/Header.astro";
+import { Header } from "@/components/Header.tsx";
 import "@/globals.css";
 ---
 
@@ -7,10 +7,10 @@ import "@/globals.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock Climb PG - New</title>
   </head>
   <body class="flex flex-col">
-    <Header />
+    <Header client:load pathname={Astro.url.pathname} />
     <main class="flex-1 overflow-auto">
       <slot />
     </main>

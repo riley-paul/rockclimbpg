@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"climbingAreas">;
+}
+
+const { entry } = Astro.props;
+---
+
+<table>
+  <tr>
+    <td>Distance from PG</td>
+    <td>{entry.data.distance_km}km ({entry.data.distance_time})</td>
+  </tr>
+
+  {
+    entry.data.nearest_town && (
+      <tr>
+        <td>Nearest Town</td>
+        <td>{entry.data.nearest_town}</td>
+      </tr>
+    )
+  }
+  {
+    entry.data.type && (
+      <tr>
+        <td>Climbing Type</td>
+        <td>{entry.data.type}</td>
+      </tr>
+    )
+  }
+  {
+    entry.data.climbs && (
+      <tr>
+        <td>Climbs</td>
+        <td>{entry.data.climbs}</td>
+      </tr>
+    )
+  }
+  {
+    entry.data.height && (
+      <tr>
+        <td>Height</td>
+        <td>{entry.data.height}</td>
+      </tr>
+    )
+  }
+  {
+    entry.data.hike_duration && (
+      <tr>
+        <td>Hike</td>
+        <td>{entry.data.hike_duration}</td>
+      </tr>
+    )
+  }
+</table>

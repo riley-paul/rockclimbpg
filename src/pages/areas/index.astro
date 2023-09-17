@@ -1,22 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Markdown from "@/layouts/Markdown.astro";
+import MarkdownLayout from "@/layouts/MarkdownLayout.astro";
 import { getCollection } from "astro:content";
 
 const climbingAreas = await getCollection("climbingAreas");
 ---
 
-<Layout>
-  <Markdown>
-    <h1>Climbing Areas</h1>
-    <ul>
-      {
-        climbingAreas.map((area) => (
-          <a href={`/areas/${area.slug}`}>
-            <li>{area.data.title}</li>
-          </a>
-        ))
-      }
-    </ul>
-  </Markdown>
-</Layout>
+<MarkdownLayout>
+  <h1>Climbing Areas</h1>
+  <ul>
+    {
+      climbingAreas.map((area) => (
+        <a href={`/areas/${area.slug}`}>
+          <li>{area.data.title}</li>
+        </a>
+      ))
+    }
+  </ul>
+</MarkdownLayout>

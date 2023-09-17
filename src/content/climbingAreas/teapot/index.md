@@ -1,9 +1,10 @@
 ---
 title: Teapot
-distance: 165km (~2 hr drive)
+distance_km: 57
+distance_time: ~45min drive
 nearest_town: Fraser Lake, BC
 hike_duration: 20-30 min
-# height: null
+height: null
 type: Top-rope, mixed & gear
 climbs: 9 (5.5 - 5.10+)
 ---

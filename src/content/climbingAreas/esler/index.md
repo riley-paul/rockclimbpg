@@ -1,6 +1,7 @@
 ---
 title: Esler
-distance: 255km (~3hr drive)
+distance_km: 255
+distance_time: ~3hr drive
 nearest_town: Williams Lake, BC
 hike_duration: minimal (1-5min)
 height: 10 - 25m

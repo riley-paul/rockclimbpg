@@ -4,12 +4,13 @@ const climbingAreas = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    distance: z.string().optional(),
-    nearest_town: z.string().optional(),
-    hike_duration: z.string().optional(),
-    height: z.string().optional(),
-    type: z.string().optional(),
-    climbs: z.string().optional(),
+    distance_km: z.number(),
+    distance_time: z.string(),
+    nearest_town: z.string().nullable(),
+    hike_duration: z.string().nullable(),
+    height: z.string().nullable(),
+    type: z.string().nullable(),
+    climbs: z.string().nullable(),
   }),
 });
 

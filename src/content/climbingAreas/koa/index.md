@@ -1,11 +1,12 @@
 ---
 title: KOA
-distance: 165km (~2 hr drive)
-nearest_town: Fraser Lake, BC
-hike_duration: 20-30 min
-# height: null
-type: Top-rope, mixed & gear
-climbs: 9 (5.5 - 5.10+)
+distance_km: 0
+distance_time: In town
+nearest_town: UNBC or Blue Cedars RV park & Campground
+hike_duration: 30-45min or 15min bike
+height: 8 meters
+type: Top-rope & sport
+climbs: 4 (5.9 - 5.11)
 ---
 
-hello ther
+More info to come...

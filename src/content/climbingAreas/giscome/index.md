@@ -1,11 +1,12 @@
 ---
 title: Giscome
-distance: 165km (~2 hr drive)
+distance_km: 42
+distance_time: ~35min drive
 nearest_town: Fraser Lake, BC
-hike_duration: 20-30 min
-# height: null
-type: Top-rope, mixed & gear
-climbs: 9 (5.5 - 5.10+)
+hike_duration: Varies by crag (5 steps to 10 min)
+height: Varies - up to 15 meters
+type: Boulder, Top Rope, Sport, Gear, & Mix
+climbs: 25+ routes (5.6 - 5.12), 50+ boulder problems (V0 - V10)
 ---
 
 ![giscome ledge](./_giscome.JPG)
