@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import type { Link } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -41,27 +41,29 @@ const links: Link[] = [
     {
       links.map((link) => (
         <li class="relative group">
-          <a href={link.link}>
-            <Button
-              variant={
-                link.selected(Astro.url.pathname) ? "default" : "secondary"
-              }
-            >
-              {link.name}
-            </Button>
+          <a
+            href={link.link}
+            style={buttonVariants({
+              variant: link.selected(Astro.url.pathname)
+                ? "default"
+                : "secondary",
+            })}
+          >
+            {link.name}
           </a>
           {link.children && (
             <div class="absolute hidden md:group-hover:flex bg-card shadow border flex-col p-1 min-w-[10rem] rounded-md">
               {link.children.map((child) => (
-                <a href={child.link}>
-                  <Button
-                    className="w-full justify-start"
-                    variant={
-                      child.selected(Astro.url.pathname) ? "secondary" : "ghost"
-                    }
-                  >
-                    {child.name}
-                  </Button>
+                <a
+                  href={child.link}
+                  class="w-full justify-start"
+                  style={buttonVariants({
+                    variant: child.selected(Astro.url.pathname)
+                      ? "secondary"
+                      : "ghost",
+                  })}
+                >
+                  {child.name}
                 </a>
               ))}
             </div>
