@@ -1,6 +1,7 @@
 ---
 title: Williston Lake
-distance: 165km (~2 hr drive)
+distance_km: 270
+distance_time: ~4hr drive
 nearest_town: Fraser Lake, BC
 hike_duration: 20-30 min
 height: null
