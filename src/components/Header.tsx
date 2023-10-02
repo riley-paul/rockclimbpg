@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import type { Link } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { MoreHorizontal, X, ChevronUp, ChevronDown } from "lucide-react";
@@ -36,24 +36,30 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
   pathname,
 }) => (
   <li className="relative group">
-    <a href={link.link}>
-      <Button
-        className="w-full"
-        variant={link.selected(pathname) ? "default" : "secondary"}
-      >
-        {link.name}
-      </Button>
+    <a
+      href={link.link}
+      className={cn(
+        "w-full",
+        buttonVariants({
+          variant: link.selected(pathname) ? "default" : "secondary",
+        })
+      )}
+    >
+      {link.name}
     </a>
     {link.children && (
-      <div className="absolute hidden md:group-hover:flex bg-card shadow border flex-col p-1 min-w-[10rem] rounded-md">
+      <div className="absolute hidden md:group-hover:flex bg-card shadow border gap-1 flex-col p-1 min-w-[10rem] rounded-md">
         {link.children.map((child) => (
-          <a href={child.link}>
-            <Button
-              className="w-full justify-start"
-              variant={child.selected(pathname) ? "secondary" : "ghost"}
-            >
-              {child.name}
-            </Button>
+          <a
+            href={child.link}
+            className={cn(
+              buttonVariants({
+                variant: child.selected(pathname) ? "secondary" : "ghost",
+              }),
+              "w-full justify-start"
+            )}
+          >
+            {child.name}
           </a>
         ))}
       </div>

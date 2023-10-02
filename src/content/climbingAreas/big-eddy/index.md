@@ -15,7 +15,23 @@ The Big Eddy is a small climbing crag situated next to the Stellako River. There
 
 ## Getting there
 
-Drive west on hwy 16 to about 2 km west of the community of Fraser Lake. Turn left on to Francois Lake Road and drive approximately 5 km. At the apex of a sweeping left bend in the road look for a small dirt road exiting off the right bank. Go 100 m down this road and park in a small clearing being sure to leave room for other users. Walk down the right fork (drive if you have high clearance vehicle) for another 100 m to a clearing. Look for a trail leaving the clearing on the left back corner. Follow the trail for about 20 minutes generally keeping right at intersections until the crag becomes visible on your left. From the top of the crag scramble down on skiers left and traverse back to the base of the routes on your right. The first route you will pass is # 9, You Otter Climb This.
+1. Drive west on Highway 16 until you're approximately 2 km west of the community of Fraser Lake.
+
+2. Take a left turn onto Francois Lake Road and continue driving for approximately 5 km.
+
+3. Look for a small dirt road on the right side as you reach the apex of a sweeping left bend in the road.
+
+4. Drive 100 m down this dirt road and park in a small clearing, making sure to leave space for other users.
+
+5. Walk down the right fork of the road (or drive if you have a high-clearance vehicle) for another 100 m until you reach a clearing.
+
+6. In the clearing, locate a trail that departs from the left back corner.
+
+7. Follow the trail for about 20 minutes, generally keeping to the right at intersections, until you can see the crag on your left.
+
+8. From the top of the crag, scramble down on the skier's left side and then traverse back to the base of the routes on your right.
+
+9. The first route you will come across is #9, known as "You Otter Climb This."
 
 ## The Routes
 

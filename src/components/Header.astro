@@ -43,7 +43,7 @@ const links: Link[] = [
         <li class="relative group">
           <a
             href={link.link}
-            style={buttonVariants({
+            class={buttonVariants({
               variant: link.selected(Astro.url.pathname)
                 ? "default"
                 : "secondary",
@@ -52,16 +52,18 @@ const links: Link[] = [
             {link.name}
           </a>
           {link.children && (
-            <div class="absolute hidden md:group-hover:flex bg-card shadow border flex-col p-1 min-w-[10rem] rounded-md">
+            <div class="absolute hidden md:group-hover:flex bg-card shadow border flex-col gap-1 p-1 min-w-[10rem] rounded-md">
               {link.children.map((child) => (
                 <a
                   href={child.link}
-                  class="w-full justify-start"
-                  style={buttonVariants({
-                    variant: child.selected(Astro.url.pathname)
-                      ? "secondary"
-                      : "ghost",
-                  })}
+                  class={cn(
+                    "w-full justify-start",
+                    buttonVariants({
+                      variant: child.selected(Astro.url.pathname)
+                        ? "secondary"
+                        : "ghost",
+                    })
+                  )}
                 >
                   {child.name}
                 </a>
