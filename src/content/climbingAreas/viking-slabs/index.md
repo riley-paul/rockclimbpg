@@ -11,10 +11,13 @@ climbs: 8 (6 sport, 2 trad)
 
 ## Getting There
 
-1. Drive east on hwy 16 to Hungary Creek FSR (about 90 km)
-1. Go a further 300 m east (on hwy 16) to a small pullout directly across from the BC Park sign (You should be on the south side of the highway)
-1. From the parking walk another 200 m east and look for a flagged trail leading into the forest
-1. Follow the flagging through a nice forest for about 800 m to the base of the first part of the development. We call this section Magic Carpet Slabs.
+1. Drive east on Highway 16 to Hungary Creek FSR (approximately 90 km).
+
+1. Continue an additional 300 meters east on Highway 16 until you reach a small pullout directly across from the BC Park sign (ensure you are on the south side of the highway).
+
+1. From the parking area, walk another 200 meters east, and keep an eye out for a flagged trail leading into the forest.
+
+1. Follow the flagging through a beautiful forest for about 800 meters until you reach the base of the first section of our development, known as Magic Carpet Slabs.
 
 ## The Routes
 

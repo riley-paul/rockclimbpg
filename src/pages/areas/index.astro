@@ -12,9 +12,9 @@ const climbingAreas = await getCollection("climbingAreas");
   <ul>
     {
       climbingAreas.map((area) => (
-        <a href={`/areas/${area.slug}`}>
-          <li>{area.data.title}</li>
-        </a>
+        <li>
+          <a href={`/areas/${area.slug}`}>{area.data.title}</a>
+        </li>
       ))
     }
   </ul>

@@ -1,5 +1,25 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Markdown from "@/layouts/Markdown.astro";
+
+const resources = await Astro.glob("../../public/resources/*.pdf");
+const filenames = resources.map((res) => ({
+  path: res.default,
+  name: res.default.replace(/^.*[\\\/]/, ""),
+}));
 ---
 
-<Layout>resources</Layout>
+<Layout>
+  <Markdown>
+    <h1>Resources</h1>
+    <ul>
+      {
+        filenames.map((name) => (
+          <li>
+            <a href={name.path}>{name.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </Markdown>
+</Layout>

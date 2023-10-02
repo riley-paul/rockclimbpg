@@ -51,6 +51,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
       <div className="absolute hidden md:group-hover:flex bg-card shadow border gap-1 flex-col p-1 min-w-[10rem] rounded-md">
         {link.children.map((child) => (
           <a
+            key={child.link}
             href={child.link}
             className={cn(
               buttonVariants({
@@ -67,7 +68,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
   </li>
 );
 
-export const Header: React.FC<{ pathname: string }> = ({ pathname }) => {
+export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
   const [open, setOpen] = React.useState(false);
   return (
     <header className="bg-card border-b shadow px-6 py-4 flex justify-center flex-col md:flex-row md:item-center md:justify-between gap-4">
@@ -95,7 +96,7 @@ export const Header: React.FC<{ pathname: string }> = ({ pathname }) => {
         )}
       >
         {links.map((link) => (
-          <PageLink link={link} pathname={pathname} />
+          <PageLink key={link.name} link={link} pathname={pathname} />
         ))}
       </ul>
     </header>

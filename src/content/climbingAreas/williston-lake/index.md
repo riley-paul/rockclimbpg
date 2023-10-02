@@ -15,6 +15,6 @@ If you are in the Mackenzie area (and have a boat) you should check out Willisto
 ![williston lake 2](./williston_lake_2.JPG)
 ![williston lake 3](./williston_lake_3.JPG)
 
-For all the info you need about this area download this [Guide Book](/Williston-Lake-GuideBookFinal2021.pdf) by Michelle and Andrew Neis.
+For all the info you need about this area download this [Guide Book](/resources/Williston-Lake-GuideBookFinal2021.pdf) by Michelle and Andrew Neis.
 
 Note: This area still being developed and we will try to keep the link updated.
