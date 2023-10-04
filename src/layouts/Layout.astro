@@ -1,4 +1,5 @@
 ---
+import Footer from "@/components/Footer.astro";
 import { Header } from "@/components/Header.tsx";
 import "@/globals.css";
 ---
@@ -13,6 +14,7 @@ import "@/globals.css";
     <Header client:load pathname={Astro.url.pathname} />
     <main class="flex-1 overflow-auto">
       <slot />
+      <!-- <Footer /> -->
     </main>
   </body>
 </html>
