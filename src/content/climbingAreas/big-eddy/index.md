@@ -11,7 +11,7 @@ climbs: 9 (5.5 - 5.10+)
 
 The Big Eddy is a small climbing crag situated next to the Stellako River. There are a total of nine developed routes of moderate grades offering a nice mix of climbing styles. The rock is made up of exfoliating (on both a macro and micro level) coarse pink granite. There are many large flake systems that could be released with the right trigger. All users should keep this in mind. This crag is especially nice on a hot summer day as the swimming in the river is excellent. It is also worth a visit in the fall to observe the spectacle of the spawning sockeye salmon. Many other users frequent this area so please be respectful. I suppose it’s also worth mentioning that bushy tailed rats inhabit this crag and their toilet habits make some of the routes rather unpleasant
 
-![topo](./_Big-Eddy-1-9.JPG)
+![topo](./_Big-Eddy-1-9.jpg)
 
 ## Getting there
 
