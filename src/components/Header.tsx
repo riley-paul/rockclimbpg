@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 import { Button, buttonVariants } from "./ui/button";
 import type { Link } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { MoreHorizontal, X, ChevronUp, ChevronDown } from "lucide-react";
+import { MoreHorizontal, X, ChevronUp, ChevronDown, Mountain, MountainSnow, MountainSnowIcon } from "lucide-react";
 import React from "react";
 
 const areas = await getCollection("climbingAreas");
@@ -74,8 +74,9 @@ export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
     <header className="bg-card border-b shadow px-6 py-4 flex justify-center flex-col md:flex-row md:item-center md:justify-between gap-4">
       <div className="flex justify-between items-center">
         <a href="/">
-          <h1 className="text-xl font-bold text-emerald-500 my-2">
-            🧗 RockClimbPG
+          <h1 className="text-2xl font-bold my-2 flex items-center">
+            <Mountain className="inline mr-2 h-6 w-6"/>
+            RockClimbPG
           </h1>
         </a>
         <Button
