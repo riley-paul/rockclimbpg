@@ -1,21 +1,36 @@
 ---
+import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
 import Markdown from "@/layouts/Markdown.astro";
 import MarkdownLayout from "@/layouts/MarkdownLayout.astro";
 import { getCollection } from "astro:content";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 const climbingAreas = await getCollection("climbingAreas");
 ---
 
-<MarkdownLayout>
-  <h1>Climbing Areas</h1>
-  <ul>
+<Layout>
+  <div class="w-full bg-background shadow px-6 py-2 font-medium text-lg">
+    <h1>Climbing Areas</h1>
+  </div>
+  <Centered>
     {
       climbingAreas.map((area) => (
-        <li>
+        <Card>
+          <CardHeader>
+            <CardTitle>{area.data.title}</CardTitle>
+          </CardHeader>
           <a href={`/areas/${area.slug}`}>{area.data.title}</a>
-        </li>
+        </Card>
       ))
     }
-  </ul>
-</MarkdownLayout>
+  </Centered>
+</Layout>

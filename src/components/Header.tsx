@@ -76,7 +76,7 @@ export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
   return (
     <header
       className={cn(
-        "bg-card text-foreground shadow px-4 md:px-6 flex justify-center flex-col md:flex-row md:justify-between gap-4",
+        "bg-card text-foreground shadow px-4 md:px-6 flex justify-center flex-col md:flex-row md:justify-between gap-4 z-50",
         open && "pb-4 md:pb-0"
       )}
     >
