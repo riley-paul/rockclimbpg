@@ -7,6 +7,8 @@ hike_duration: minimal (1-5min)
 height: 10 - 25m
 type: Sport, Mix, Multipitch? & Gear?
 climbs: 44+ (5.7 - 5.12)
+latitude: 52.12693990929878
+longitude: -122.17623586777349
 ---
 
 An updated guide (2015) for climbs in the Willams Lake area can be found at Red Shreds in Williams Lake, BC.

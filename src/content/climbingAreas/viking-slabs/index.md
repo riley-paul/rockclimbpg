@@ -7,6 +7,8 @@ hike_duration: 20-30 min
 height: null
 type: Top-rope, mixed & gear
 climbs: 8 (6 sport, 2 trad)
+latitude: 53.85806121109268
+longitude: -121.50407892291038
 ---
 
 ## Getting There

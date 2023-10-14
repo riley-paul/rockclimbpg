@@ -10,6 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
 ---
 
 <Layout>
@@ -18,15 +20,13 @@ import {
       <CardHeader>
         <CardTitle>Welcome to Rock Climb PG</CardTitle>
         <CardDescription className="">
-          RockClimbPG is intended to provide climbing information for those
-          wanting to climb in the Prince George, BC area. This is a collection
-          of information developed by various climbers from our community. These
+          RockClimbPG is intended to provide information for those wanting to
+          rock climb in the Prince George, BC area. This is a collection of
+          information developed by various climbers from our community. These
           areas are chosen because of their popularity and accessibility. The
           website will be updated as more information is gathered, so don't
-          think what's here is all there is.
-          <br /><br />
-           The hope is to eventually make a rock climbing guide, but for now
-          this will help get you climbing!
+          think what's here is all there is. The hope is to eventually make a
+          rock climbing guide, but for now this will help get you climbing!
           <br /><br />
            Many thanks to everyone who has contributed to this site!
         </CardDescription>
@@ -34,6 +34,11 @@ import {
       <CardContent>
         <img class="h-auto w-full" src="/images/Overview-Map_1.png" alt="" />
       </CardContent>
+      <CardFooter className="justify-end">
+        <a href="/areas" class={buttonVariants({ variant: "secondary" })}
+          >Check Out the Climbs<ChevronRight className="h-4 w-4 ml-2" /></a
+        >
+      </CardFooter>
     </Card>
   </Centered>
 </Layout>

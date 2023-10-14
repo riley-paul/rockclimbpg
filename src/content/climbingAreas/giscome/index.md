@@ -7,6 +7,8 @@ hike_duration: Varies by crag (5 steps to 10 min)
 height: Varies - up to 15 meters
 type: Boulder, Top Rope, Sport, Gear, & Mix
 climbs: 25+ routes (5.6 - 5.12), 50+ boulder problems (V0 - V10)
+latitude: 53.99878634261325
+longitude: -122.62759229296876
 ---
 
 ![giscome ledge](./_giscome.JPG)

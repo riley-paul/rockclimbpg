@@ -7,6 +7,8 @@ hike_duration: 5-15 min
 height: 20m - 12 pitches
 type: Sport, Mix, Gear & Multipitch
 climbs: 40+ (5.5 - 5.12)
+latitude: 54.2063320265992
+longitude: -123.26088699882816
 ---
 
 ## Resources

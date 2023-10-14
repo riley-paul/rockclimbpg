@@ -4,6 +4,8 @@ const climbingAreas = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    latitude: z.number(),
+    longitude: z.number(),
     distance_km: z.number(),
     distance_time: z.string(),
     nearest_town: z.string().nullable(),

@@ -12,6 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import MapImage from "@/components/MapImage.astro";
+import AreaCard from "@/components/AreaCard.astro";
 
 const climbingAreas = await getCollection("climbingAreas");
 ---
@@ -21,15 +23,8 @@ const climbingAreas = await getCollection("climbingAreas");
     <h1>Climbing Areas</h1>
   </div>
   <Centered>
-    {
-      climbingAreas.map((area) => (
-        <Card>
-          <CardHeader>
-            <CardTitle>{area.data.title}</CardTitle>
-          </CardHeader>
-          <a href={`/areas/${area.slug}`}>{area.data.title}</a>
-        </Card>
-      ))
-    }
+    <div class="grid gap-4">
+      {climbingAreas.map((area) => <AreaCard area={area} />)}
+    </div>
   </Centered>
 </Layout>

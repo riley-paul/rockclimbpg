@@ -7,6 +7,8 @@ hike_duration: 10-15 min
 height: 10-15m
 type: Sport/Boulder
 climbs: 21+ routes (5.10c - 5.13+) 2 boulders (V3 - V4)
+latitude: 53.923115891032836
+longitude: -122.0340287717795
 ---
 
 ## Getting There
