@@ -20,9 +20,10 @@ import "@/globals.css";
   </head>
   <body class="flex flex-col">
     <Header client:load pathname={Astro.url.pathname} />
-    <main class="flex-1 overflow-auto">
+    <main class="flex-1 overflow-auto bg-[url('concrete-wall.png')]">
       <slot />
       <!-- <Footer /> -->
     </main>
   </body>
 </html>
+

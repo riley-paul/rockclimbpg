@@ -45,20 +45,20 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
 }) => (
   <li
     className={cn(
-      "relative group h-14 px-2 border-b-2 border-transparent flex items-center text-muted-foreground hover:border-muted-foreground",
+      "relative group h-full px-2 border-l-2 md:border-b-2 md:border-l-0 border-transparent flex items-center text-muted-foreground hover:border-muted-foreground",
       link.selected(pathname) &&
         "border-primary text-foreground hover:border-primary"
     )}
   >
     <a href={link.link}>{link.name}</a>
     {link.children && (
-      <div className="absolute top-14 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground">
+      <div className="absolute top-16 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground">
         {link.children.map((child) => (
           <a
             key={child.link}
             href={child.link}
             className={cn(
-              "w-full px-2 py-1 border-l-2 border-transparent hover:border-muted-foreground",
+              "w-full px-4 py-1 border-l-2 border-transparent hover:border-muted-foreground",
               child.selected(pathname) &&
                 "border-primary hover:border-primary text-foreground"
             )}
@@ -74,11 +74,16 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
 export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
   const [open, setOpen] = React.useState(false);
   return (
-    <header className="bg-card text-foreground shadow px-6 flex justify-center flex-col md:flex-row md:justify-between gap-4">
+    <header
+      className={cn(
+        "bg-card text-foreground shadow px-4 md:px-6 flex justify-center flex-col md:flex-row md:justify-between gap-4",
+        open && "pb-4 md:pb-0"
+      )}
+    >
       <div className="flex justify-between items-center">
         <a href="/">
-          <h1 className="text-2xl font-bold flex items-center">
-            <Mountain className="inline mr-2 h-6 w-6" />
+          <h1 className="text-2xl font-bold flex items-center h-16">
+            <Mountain className="inline mr-2 h-6 w-6 text-primary" />
             RockClimbPG
           </h1>
         </a>
