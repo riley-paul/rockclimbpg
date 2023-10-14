@@ -45,7 +45,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
 }) => (
   <li
     className={cn(
-      "relative group h-full px-2 border-l-2 md:border-b-2 md:border-l-0 border-transparent flex items-center text-muted-foreground hover:border-muted-foreground",
+      "relative group h-full px-2 border-l-2 md:border-b-2 md:border-l-0 border-transparent flex items-center text-muted-foreground hover:border-muted-foreground transition-colors",
       link.selected(pathname) &&
         "border-primary text-foreground hover:border-primary"
     )}
@@ -58,7 +58,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
             key={child.link}
             href={child.link}
             className={cn(
-              "w-full px-4 py-1 border-l-2 border-transparent hover:border-muted-foreground",
+              "w-full px-4 py-1 border-l-2 border-transparent hover:border-muted-foreground transition-colors",
               child.selected(pathname) &&
                 "border-primary hover:border-primary text-foreground"
             )}
