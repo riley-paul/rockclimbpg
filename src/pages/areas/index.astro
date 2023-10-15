@@ -23,7 +23,7 @@ const climbingAreas = await getCollection("climbingAreas");
     <PageHeaderContainer>
       <h1>Climbing Areas</h1>
     </PageHeaderContainer>
-    <Card className="prose dark:prose-invert p-4">
+    <Card className="prose dark:prose-invert p-4 max-w-none">
       <ul>
         {
           climbingAreas.map((i) => (

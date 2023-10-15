@@ -2,11 +2,19 @@
 import AreaTable from "@/components/AreaTable.astro";
 import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
+import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { ChevronLeft, ChevronLeftSquare } from "lucide-react";
 
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
@@ -27,29 +35,36 @@ const climbingRoutes = await getCollection(
 
 <Layout>
   <Centered>
-    <div class="prose dark:prose-invert">
-      <h1>
-        {entry.data.title}
-      </h1>
-
-      <AreaTable entry={entry} />
-      <Content />
-      {
-        climbingRoutes.length > 0 && (
-          <>
-            <h2>Routes</h2>
-            <ol>
-              {climbingRoutes.map((route) => (
-                <li>
-                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                    {route.data.title}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </>
-        )
-      }
+    <PageHeaderContainer>
+      <h1>{entry.data.title}</h1>
+    </PageHeaderContainer>
+    <div class="grid gap-4">
+      <Card>
+        <AreaTable entry={entry} />
+      </Card>
+      <Card>
+        <div class="prose dark:prose-invert max-w-none p-6">
+          <Content />
+        </div>
+      </Card>
+      <div class="prose dark:prose-invert max-w-none">
+        {
+          climbingRoutes.length > 0 && (
+            <>
+              <h2>Routes</h2>
+              <ol>
+                {climbingRoutes.map((route) => (
+                  <li>
+                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                      {route.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </>
+          )
+        }
+      </div>
     </div>
   </Centered>
 </Layout>

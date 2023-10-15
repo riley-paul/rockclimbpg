@@ -52,7 +52,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
   >
     <a href={link.link}>{link.name}</a>
     {link.children && (
-      <div className="absolute top-16 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground">
+      <div className="absolute top-16 -left-2 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground">
         {link.children.map((child) => (
           <a
             key={child.link}
