@@ -1,7 +1,6 @@
 ---
 import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
-import Markdown from "@/layouts/Markdown.astro";
 import { getCollection } from "astro:content";
 
 import {
@@ -14,17 +13,26 @@ import {
 } from "@/components/ui/card";
 import MapImage from "@/components/MapImage.astro";
 import AreaCard from "@/components/AreaCard.astro";
+import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 
 const climbingAreas = await getCollection("climbingAreas");
 ---
 
 <Layout>
-  <div class="w-full bg-background shadow px-6 py-2 font-medium text-lg">
-    <h1>Climbing Areas</h1>
-  </div>
   <Centered>
-    <div class="grid gap-4">
-      {climbingAreas.map((area) => <AreaCard area={area} />)}
-    </div>
+    <PageHeaderContainer>
+      <h1>Climbing Areas</h1>
+    </PageHeaderContainer>
+    <Card className="prose dark:prose-invert p-4">
+      <ul>
+        {
+          climbingAreas.map((i) => (
+            <li>
+              <a href={`/areas/${i.slug}`}>{i.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </Card>
   </Centered>
 </Layout>

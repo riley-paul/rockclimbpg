@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/layouts/Layout.astro";
-import Markdown from "@/layouts/Markdown.astro";
 
 import {
   Card,
@@ -17,14 +16,18 @@ import {
 import { Send } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Centered from "@/layouts/Centered.astro";
+import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 ---
 
 <Layout>
   <Centered>
+    <PageHeaderContainer>
+      <h1>Contact</h1>
+    </PageHeaderContainer>
     <Card>
       <form action="">
         <CardHeader>
-          <CardTitle>Contact</CardTitle>
+          <!-- <CardTitle>Contact</CardTitle> -->
           <CardDescription>
             Have some updated beta? Drop us a line and we'll get it on the site
           </CardDescription>
@@ -44,7 +47,7 @@ import Centered from "@/layouts/Centered.astro";
           </div>
         </CardContent>
         <Separator />
-        <CardFooter className="justify-end pt-6">
+        <CardFooter className="justify-end pt-6 bg-muted/50">
           <Button>
             <Send className="h-4 w-4 mr-2" />
              Send Email

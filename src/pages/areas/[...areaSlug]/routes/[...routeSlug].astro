@@ -1,6 +1,5 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Markdown from "@/layouts/Markdown.astro";
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
@@ -17,10 +16,8 @@ const { Content } = await entry.render();
 ---
 
 <Layout>
-  <Markdown>
-    <h1>
-      {entry.data.title}
-    </h1>
-    <Content />
-  </Markdown>
+  <h1>
+    {entry.data.title}
+  </h1>
+  <Content />
 </Layout>

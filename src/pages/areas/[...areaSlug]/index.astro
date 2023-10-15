@@ -6,6 +6,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { ChevronLeft, ChevronLeftSquare } from "lucide-react";
 
+
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
   return climbingAreas.map((entry) => ({
@@ -29,6 +31,7 @@ const climbingRoutes = await getCollection(
       <h1>
         {entry.data.title}
       </h1>
+
       <AreaTable entry={entry} />
       <Content />
       {
