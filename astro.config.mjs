@@ -6,6 +6,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind({ applyBaseStyle: false })],
-  // site: "https://rjp301.github.io",
-  // base: '/rockclimbpg'
+  site: "https://rjp301.github.io",
+  base: '/rockclimbpg'
 });
