@@ -1,5 +1,4 @@
 ---
-import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -19,20 +18,18 @@ const climbingAreas = await getCollection("climbingAreas");
 ---
 
 <Layout>
-  <Centered>
-    <PageHeaderContainer>
-      <h1>Climbing Areas</h1>
-    </PageHeaderContainer>
-    <Card className="prose dark:prose-invert p-4 max-w-none">
-      <ul>
-        {
-          climbingAreas.map((i) => (
-            <li>
-              <a href={`/areas/${i.slug}`}>{i.data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </Card>
-  </Centered>
+  <PageHeaderContainer>
+    <h1>Climbing Areas</h1>
+  </PageHeaderContainer>
+  <Card className="prose dark:prose-invert p-4 max-w-none">
+    <ul>
+      {
+        climbingAreas.map((i) => (
+          <li>
+            <a href={`/areas/${i.slug}`}>{i.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </Card>
 </Layout>

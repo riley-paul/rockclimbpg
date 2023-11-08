@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Centered from "@/layouts/Centered.astro";
 import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 
 const resources = await Astro.glob("../../public/resources/*.pdf");
@@ -20,20 +19,18 @@ const filenames = resources.map((res) => ({
 ---
 
 <Layout>
-  <Centered>
-    <PageHeaderContainer>
-      <h1>Resources</h1>
-    </PageHeaderContainer>
-    <Card className="prose dark:prose-invert p-4 max-w-none">
-      <ul>
-        {
-          filenames.map((name) => (
-            <li>
-              <a href={name.path}>{name.name}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </Card>
-  </Centered>
+  <PageHeaderContainer>
+    <h1>Resources</h1>
+  </PageHeaderContainer>
+  <Card className="prose dark:prose-invert p-4 max-w-none">
+    <ul>
+      {
+        filenames.map((name) => (
+          <li>
+            <a href={name.path}>{name.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </Card>
 </Layout>

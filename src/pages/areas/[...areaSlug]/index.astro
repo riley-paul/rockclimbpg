@@ -1,6 +1,5 @@
 ---
 import AreaTable from "@/components/AreaTable.astro";
-import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
 import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 import type { GetStaticPaths } from "astro";
@@ -34,37 +33,35 @@ const climbingRoutes = await getCollection(
 ---
 
 <Layout>
-  <Centered>
-    <PageHeaderContainer>
-      <h1>{entry.data.title}</h1>
-    </PageHeaderContainer>
-    <div class="grid gap-4">
-      <Card>
-        <AreaTable entry={entry} />
-      </Card>
-      <Card>
-        <div class="prose dark:prose-invert max-w-none p-6">
-          <Content />
-        </div>
-      </Card>
-      <div class="prose dark:prose-invert max-w-none">
-        {
-          climbingRoutes.length > 0 && (
-            <>
-              <h2>Routes</h2>
-              <ol>
-                {climbingRoutes.map((route) => (
-                  <li>
-                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                      {route.data.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </>
-          )
-        }
+  <PageHeaderContainer>
+    <h1>{entry.data.title}</h1>
+  </PageHeaderContainer>
+  <div class="grid gap-4">
+    <Card>
+      <AreaTable entry={entry} />
+    </Card>
+    <Card>
+      <div class="prose dark:prose-invert max-w-none p-6">
+        <Content />
       </div>
+    </Card>
+    <div class="prose dark:prose-invert max-w-none">
+      {
+        climbingRoutes.length > 0 && (
+          <>
+            <h2>Routes</h2>
+            <ol>
+              {climbingRoutes.map((route) => (
+                <li>
+                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                    {route.data.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </>
+        )
+      }
     </div>
-  </Centered>
+  </div>
 </Layout>

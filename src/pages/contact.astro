@@ -15,45 +15,42 @@ import {
 } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import Centered from "@/layouts/Centered.astro";
 import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 ---
 
 <Layout>
-  <Centered>
-    <PageHeaderContainer>
-      <h1>Contact</h1>
-    </PageHeaderContainer>
-    <Card>
-      <form action="">
-        <CardHeader>
-          <!-- <CardTitle>Contact</CardTitle> -->
-          <CardDescription>
-            Have some updated beta? Drop us a line and we'll get it on the site
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div class="space-y-1.5">
-            <Label>Name</Label>
-            <Input type="text" required placeholder="Name" />
-          </div>
-          <div class="space-y-1.5">
-            <Label>Email</Label>
-            <Input type="email" required placeholder="Email" />
-          </div>
-          <div class="space-y-1.5">
-            <Label>Message</Label>
-            <Textarea placeholder="Message" rows={4} />
-          </div>
-        </CardContent>
-        <Separator />
-        <CardFooter className="justify-end pt-6 bg-muted/50">
-          <Button>
-            <Send className="h-4 w-4 mr-2" />
-             Send Email
-          </Button>
-        </CardFooter>
-      </form>
-    </Card>
-  </Centered>
+  <PageHeaderContainer>
+    <h1>Contact</h1>
+  </PageHeaderContainer>
+  <Card>
+    <form action="">
+      <CardHeader>
+        <!-- <CardTitle>Contact</CardTitle> -->
+        <CardDescription>
+          Have some updated beta? Drop us a line and we'll get it on the site
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-4">
+        <div class="space-y-1.5">
+          <Label>Name</Label>
+          <Input type="text" required placeholder="Name" />
+        </div>
+        <div class="space-y-1.5">
+          <Label>Email</Label>
+          <Input type="email" required placeholder="Email" />
+        </div>
+        <div class="space-y-1.5">
+          <Label>Message</Label>
+          <Textarea placeholder="Message" rows={4} />
+        </div>
+      </CardContent>
+      <Separator />
+      <CardFooter className="justify-end pt-6 bg-muted/50">
+        <Button>
+          <Send className="h-4 w-4 mr-2" />
+           Send Email
+        </Button>
+      </CardFooter>
+    </form>
+  </Card>
 </Layout>

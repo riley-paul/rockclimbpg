@@ -1,5 +1,4 @@
 ---
-import Centered from "@/layouts/Centered.astro";
 import Layout from "@/layouts/Layout.astro";
 
 import {
@@ -16,31 +15,29 @@ import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
 ---
 
 <Layout>
-  <Centered>
-    <PageHeaderContainer>
-      <h1>Welcome to RockClimbPG</h1>
-    </PageHeaderContainer>
-    <Card>
-      <CardHeader className="prose dark:prose-invert max-w-none">
-        <p>
-          RockClimbPG is intended to provide information for those wanting to
-          rock climb in the Prince George, BC area. This is a collection of
-          information developed by various climbers from our community. These
-          areas are chosen because of their popularity and accessibility. The
-          website will be updated as more information is gathered, so don't
-          think what's here is all there is. The hope is to eventually make a
-          rock climbing guide, but for now this will help get you climbing!
-        </p>
-        <p>Many thanks to everyone who has contributed to this site!</p>
-      </CardHeader>
-      <CardContent>
-        <img class="h-auto w-full" src="/images/Overview-Map_1.png" alt="" />
-      </CardContent>
-      <CardFooter className="justify-end">
-        <a href="/areas" class={buttonVariants({ variant: "secondary" })}
-          >Check Out the Climbs<ChevronRight className="h-4 w-4 ml-2" /></a
-        >
-      </CardFooter>
-    </Card>
-  </Centered>
+  <PageHeaderContainer>
+    <h1>Welcome to RockClimbPG</h1>
+  </PageHeaderContainer>
+  <Card>
+    <CardHeader className="prose dark:prose-invert max-w-none">
+      <p>
+        RockClimbPG is intended to provide information for those wanting to
+        rock climb in the Prince George, BC area. This is a collection of
+        information developed by various climbers from our community. These
+        areas are chosen because of their popularity and accessibility. The
+        website will be updated as more information is gathered, so don't
+        think what's here is all there is. The hope is to eventually make a
+        rock climbing guide, but for now this will help get you climbing!
+      </p>
+      <p>Many thanks to everyone who has contributed to this site!</p>
+    </CardHeader>
+    <CardContent>
+      <img class="h-auto w-full" src="/images/Overview-Map_1.png" alt="" />
+    </CardContent>
+    <CardFooter className="justify-end">
+      <a href="/areas" class={buttonVariants({ variant: "secondary" })}
+        >Check Out the Climbs<ChevronRight className="h-4 w-4 ml-2" /></a
+      >
+    </CardFooter>
+  </Card>
 </Layout>

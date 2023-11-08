@@ -4,7 +4,7 @@ module.exports = {
   content: ["./src/**/*.{ts,tsx,astro}"],
   theme: {
     fontFamily: {
-      sans: ["Geist", "sans-serif"],
+      sans: ["Open Sans", "sans-serif"],
     },
     container: {
       center: true,
