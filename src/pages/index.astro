@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
+import { Map } from "@/components/Map.tsx";
+
 import {
   Card,
   CardContent,
@@ -12,6 +14,9 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
+import { getCollection } from "astro:content";
+
+const areas = await getCollection("climbingAreas");
 ---
 
 <Layout>
@@ -19,15 +24,25 @@ import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
     <h1>Welcome to RockClimbPG</h1>
   </PageHeaderContainer>
   <Card>
+    <Map
+      client:only
+      tile="image"
+      markers={areas.map((area) => ({
+        position: [area.data.latitude, area.data.longitude],
+        popup: area.data.title,
+      }))}
+    />
+  </Card>
+  <Card>
     <CardHeader className="prose dark:prose-invert max-w-none">
       <p>
-        RockClimbPG is intended to provide information for those wanting to
-        rock climb in the Prince George, BC area. This is a collection of
-        information developed by various climbers from our community. These
-        areas are chosen because of their popularity and accessibility. The
-        website will be updated as more information is gathered, so don't
-        think what's here is all there is. The hope is to eventually make a
-        rock climbing guide, but for now this will help get you climbing!
+        RockClimbPG is intended to provide information for those wanting to rock
+        climb in the Prince George, BC area. This is a collection of information
+        developed by various climbers from our community. These areas are chosen
+        because of their popularity and accessibility. The website will be
+        updated as more information is gathered, so don't think what's here is
+        all there is. The hope is to eventually make a rock climbing guide, but
+        for now this will help get you climbing!
       </p>
       <p>Many thanks to everyone who has contributed to this site!</p>
     </CardHeader>

@@ -8,6 +8,10 @@ import "@/globals.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    
     <title>Rock Climb PG - New</title>
   </head>
   <body
@@ -15,7 +19,7 @@ import "@/globals.css";
   >
     <Header client:load pathname={Astro.url.pathname} />
     <main class="flex-1 overflow-auto">
-      <div class="container p-4">
+      <div class="container p-4 grid gap-4">
         <slot />
       </div>
       <!-- <Footer /> -->
