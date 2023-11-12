@@ -23,17 +23,15 @@ const areas = await getCollection("climbingAreas");
   <PageHeaderContainer>
     <h1>Welcome to RockClimbPG</h1>
   </PageHeaderContainer>
-  <Card>
-    <Map
-      client:only
-      tile="topo"
-      height={400}
-      markers={areas.map((area) => ({
-        position: [area.data.latitude, area.data.longitude],
-        popup: area.data.title,
-      }))}
-    />
-  </Card>
+  <Map
+    client:only
+    tile="topo"
+    height={400}
+    markers={areas.map((area) => ({
+      position: [area.data.latitude, area.data.longitude],
+      popup: area.data.title,
+    }))}
+  />
   <Card>
     <CardHeader className="prose dark:prose-invert max-w-none">
       <p>

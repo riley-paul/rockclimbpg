@@ -1,6 +1,8 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import { type LatLngTuple } from "leaflet";
 import L from "leaflet";
+import { Card } from "./ui/card";
 
 interface TileLayer {
   url: string;
@@ -33,34 +35,54 @@ export interface MarkerObj {
 }
 
 interface Props {
-  tile: keyof typeof tileLayers;
   markers: MarkerObj[];
+  tile?: keyof typeof tileLayers;
   height?: number;
+  centerPg?: boolean;
 }
 
+const PG_COORDS: LatLngTuple = [53.91745588242724, -122.74997120715773];
+
+const markerStar = new L.Icon({
+  iconUrl: "/icons/star.svg",
+  iconSize: [32, 32],
+  iconAnchor: [16, 16],
+  popupAnchor: [0, -32],
+});
+
+const getCenter = (coords: [number, number][]): LatLngTuple => {
+  const centerLat =
+    coords.reduce((acc, val) => acc + val[0], 0) / coords.length;
+  const centerLon =
+    coords.reduce((acc, val) => acc + val[1], 0) / coords.length;
+  return [centerLat, centerLon];
+};
+
 export const Map: React.FC<Props> = (props) => {
-  const { tile, markers } = props;
+  const { tile = "topo", markers, centerPg } = props;
   const tileLayer = tileLayers[tile];
 
-  const centerLat =
-    markers.reduce((acc, val) => acc + val.position[0], 0) / markers.length;
-  const centerLon =
-    markers.reduce((acc, val) => acc + val.position[1], 0) / markers.length;
-
   return (
-    <MapContainer
-      center={[53.91745588242724, -122.74997120715773]}
-      zoom={8}
-      scrollWheelZoom={false}
-      style={{ height: props.height ?? 300 }}
-      className="rounded-md"
-    >
-      <TileLayer attribution={tileLayer.attribution} url={tileLayer.url} />
-      {markers.map((marker) => (
-        <Marker position={marker.position}>
-          <Tooltip>{marker.popup}</Tooltip>
+    <Card>
+      <MapContainer
+        center={
+          centerPg ? PG_COORDS : getCenter(markers.map((m) => m.position))
+        }
+        zoom={8}
+        scrollWheelZoom={false}
+        style={{ height: props.height ?? 300 }}
+        className="rounded-md"
+      >
+        <TileLayer attribution={tileLayer.attribution} url={tileLayer.url} />
+        {markers.map((marker) => (
+          <Marker position={marker.position}>
+            <Tooltip>{marker.popup}</Tooltip>
+          </Marker>
+        ))}
+        <Marker position={PG_COORDS} icon={markerStar}>
+          <Tooltip>Prince George</Tooltip>
         </Marker>
-      ))}
-    </MapContainer>
+      </MapContainer>
+    </Card>
   );
 };

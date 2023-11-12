@@ -2,9 +2,8 @@
 import AreaTable from "@/components/AreaTable.astro";
 import Layout from "@/layouts/Layout.astro";
 import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
-import type { GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
-import { ChevronLeft, ChevronLeftSquare } from "lucide-react";
+import type { ContentEntryType, GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 import {
   Card,
@@ -15,6 +14,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { Map } from "@/components/Map";
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
   return climbingAreas.map((entry) => ({
@@ -22,6 +23,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     props: { entry },
   }));
 };
+
+interface Props {
+  entry: CollectionEntry<"climbingAreas">;
+}
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
@@ -36,6 +41,15 @@ const climbingRoutes = await getCollection(
   <PageHeaderContainer>
     <h1>{entry.data.title}</h1>
   </PageHeaderContainer>
+  <Map
+    client:only
+    markers={[
+      {
+        popup: entry.data.title,
+        position: [entry.data.latitude, entry.data.longitude],
+      },
+    ]}
+  />
   <div class="grid gap-4">
     <Card>
       <AreaTable entry={entry} />
