@@ -26,7 +26,8 @@ const areas = await getCollection("climbingAreas");
   <Card>
     <Map
       client:only
-      tile="image"
+      tile="topo"
+      height={400}
       markers={areas.map((area) => ({
         position: [area.data.latitude, area.data.longitude],
         popup: area.data.title,
