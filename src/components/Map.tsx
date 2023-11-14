@@ -38,6 +38,7 @@ interface Props {
   markers: MarkerObj[];
   tile?: keyof typeof tileLayers;
   height?: number;
+  zoom?: number;
   centerPg?: boolean;
 }
 
@@ -59,7 +60,7 @@ const getCenter = (coords: [number, number][]): LatLngTuple => {
 };
 
 export const Map: React.FC<Props> = (props) => {
-  const { tile = "topo", markers, centerPg } = props;
+  const { tile = "topo", markers, centerPg, zoom } = props;
   const tileLayer = tileLayers[tile];
 
   return (
@@ -68,7 +69,7 @@ export const Map: React.FC<Props> = (props) => {
         center={
           centerPg ? PG_COORDS : getCenter(markers.map((m) => m.position))
         }
-        zoom={8}
+        zoom={zoom ?? 10}
         scrollWheelZoom={false}
         style={{ height: props.height ?? 300 }}
         className="rounded-md"

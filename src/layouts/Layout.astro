@@ -2,22 +2,33 @@
 import Footer from "@/components/Footer.astro";
 import { Header } from "@/components/Header.tsx";
 import "@/globals.css";
+
+interface Props {
+  pageTitle?: string;
+}
 ---
 
 <html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-    
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
     <title>Rock Climb PG - New</title>
   </head>
   <body
     class="flex flex-col bg-[url('/concrete-wall.png')] dark:bg-[url('/asfalt-light.png')]"
   >
-    <Header client:load pathname={Astro.url.pathname} />
+    <Header
+      client:load
+      pathname={Astro.url.pathname}
+      subtitle={Astro.props.pageTitle}
+    />
     <main class="flex-1 overflow-auto">
       <div class="container p-4 grid gap-4">
         <slot />

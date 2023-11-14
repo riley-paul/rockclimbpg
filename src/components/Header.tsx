@@ -52,7 +52,7 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
   >
     <a href={link.link}>{link.name}</a>
     {link.children && (
-      <div className="absolute top-16 -left-2 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground">
+      <div className="absolute top-16 -left-2 hidden md:group-hover:flex bg-card shadow gap-1 flex-col py-2 min-w-[12rem] rounded-md text-muted-foreground z-[100000]">
         {link.children.map((child) => (
           <a
             key={child.link}
@@ -71,7 +71,13 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
   </li>
 );
 
-export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
+interface Props {
+  pathname: string;
+  subtitle?: string;
+}
+
+export const Header: React.FC<Props> = (props) => {
+  const { pathname = "", subtitle } = props;
   const [open, setOpen] = React.useState(false);
   return (
     <div className="bg-card text-foreground shadow z-50">
@@ -109,6 +115,11 @@ export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
           ))}
         </ul>
       </header>
+      {subtitle && (
+        <div className="border-t text-muted-foreground font-medium py-1 text-lg">
+          <div className="container">{subtitle}</div>
+        </div>
+      )}
     </div>
   );
 };
