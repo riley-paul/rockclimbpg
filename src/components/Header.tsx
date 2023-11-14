@@ -74,40 +74,41 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
 export const Header: React.FC<{ pathname: string }> = ({ pathname = "" }) => {
   const [open, setOpen] = React.useState(false);
   return (
-    <header
-      className={cn(
-        "bg-card text-foreground shadow px-4 md:px-6 flex justify-center flex-col md:flex-row md:justify-between gap-4 z-50",
-        open && "pb-4 md:pb-0"
-      )}
-    >
-      <div className="flex justify-between items-center">
-        <a href="/">
-          <h1 className="text-2xl font-bold flex items-center h-16">
-            <Mountain className="inline mr-2 h-6 w-6 text-primary" />
-            RockClimbPG
-          </h1>
-        </a>
-        <Button
-          size="icon"
-          variant="ghost"
-          onClick={() => setOpen((prev) => !prev)}
-          className="md:hidden"
-        >
-          {open ? <ChevronUp /> : <ChevronDown />}
-        </Button>
-      </div>
-
-      <ul
+    <div className="bg-card text-foreground shadow z-50">
+      <header
         className={cn(
-          "flex gap-3 flex-col",
-          { hidden: !open },
-          "md:flex md:flex-row md:items-center"
+          "container md:px-6 flex flex-col md:flex-row md:justify-between gap-4",
+          open && "pb-4 md:pb-0"
         )}
       >
-        {links.map((link) => (
-          <PageLink key={link.name} link={link} pathname={pathname} />
-        ))}
-      </ul>
-    </header>
+        <div className="flex justify-between items-center">
+          <a href="/">
+            <h1 className="text-2xl font-bold flex items-center h-16">
+              <Mountain className="inline mr-2 h-6 w-6 text-primary" />
+              RockClimbPG
+            </h1>
+          </a>
+          <Button
+            size="icon"
+            variant="ghost"
+            onClick={() => setOpen((prev) => !prev)}
+            className="md:hidden"
+          >
+            {open ? <ChevronUp /> : <ChevronDown />}
+          </Button>
+        </div>
+        <ul
+          className={cn(
+            "flex gap-3 flex-col",
+            { hidden: !open },
+            "md:flex md:flex-row md:items-center"
+          )}
+        >
+          {links.map((link) => (
+            <PageLink key={link.name} link={link} pathname={pathname} />
+          ))}
+        </ul>
+      </header>
+    </div>
   );
 };
