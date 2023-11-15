@@ -73,17 +73,16 @@ const PageLink: React.FC<{ link: Link; pathname: string }> = ({
 
 interface Props {
   pathname: string;
-  subtitle?: string;
 }
 
 export const Header: React.FC<Props> = (props) => {
-  const { pathname = "", subtitle } = props;
+  const { pathname = "" } = props;
   const [open, setOpen] = React.useState(false);
   return (
     <div className="bg-card text-foreground shadow z-50">
       <header
         className={cn(
-          "container md:px-6 flex flex-col md:flex-row md:justify-between gap-4",
+          "container flex flex-col md:flex-row md:justify-between gap-4",
           open && "pb-4 md:pb-0"
         )}
       >
@@ -115,11 +114,6 @@ export const Header: React.FC<Props> = (props) => {
           ))}
         </ul>
       </header>
-      {subtitle && (
-        <div className="border-t text-muted-foreground font-medium py-1 text-lg">
-          <div className="container">{subtitle}</div>
-        </div>
-      )}
     </div>
   );
 };

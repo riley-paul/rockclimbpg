@@ -18,18 +18,23 @@ const climbingAreas = await getCollection("climbingAreas");
 ---
 
 <Layout>
-  <PageHeaderContainer>
-    <h1>Climbing Areas</h1>
-  </PageHeaderContainer>
-  <Card className="prose dark:prose-invert p-4 max-w-none">
-    <ul>
-      {
-        climbingAreas.map((i) => (
-          <li>
-            <a href={`/areas/${i.slug}`}>{i.data.title}</a>
-          </li>
-        ))
-      }
-    </ul>
+  <Card>
+    <CardHeader>
+      <CardTitle>Climbing Areas</CardTitle>
+      <CardDescription>
+        Click on an area to see more information
+      </CardDescription>
+    </CardHeader>
+    <CardContent className="prose dark:prose-invert max-w-none">
+      <ul>
+        {
+          climbingAreas.map((i) => (
+            <li>
+              <a href={`/areas/${i.slug}`}>{i.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </CardContent>
   </Card>
 </Layout>
