@@ -62,3 +62,8 @@ html,
 body {
   @apply w-full h-full overflow-hidden;
 }
+
+body {
+  background-color: #ffffff;
+  background-image: url("/bg/topography.svg");
+}
