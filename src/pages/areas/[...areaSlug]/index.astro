@@ -41,7 +41,7 @@ const climbingRoutes = await getCollection(
   <PageHeaderContainer>
     <h1>{entry.data.title}</h1>
   </PageHeaderContainer>
-  <Map
+  <!-- <Map
     client:only
     markers={[
       {
@@ -49,7 +49,7 @@ const climbingRoutes = await getCollection(
         position: [entry.data.latitude, entry.data.longitude],
       },
     ]}
-  />
+  /> -->
   <div class="grid gap-4">
     <Card>
       <AreaTable entry={entry} />

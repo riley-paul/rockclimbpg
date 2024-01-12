@@ -8,7 +8,7 @@ interface Props {
 }
 ---
 
-<html lang="en" class="">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,6 @@ interface Props {
     <Header
       client:load
       pathname={Astro.url.pathname}
-      subtitle={Astro.props.pageTitle}
     />
     <main class="flex-1 overflow-auto">
       <div class="container p-4 grid gap-4">

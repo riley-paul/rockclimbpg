@@ -46,7 +46,7 @@ const areas = await getCollection("climbingAreas");
         >
       </CardFooter>
     </Card>
-    <Map
+    <!-- <Map
       client:only
       tile="topo"
       height={600}
@@ -55,6 +55,6 @@ const areas = await getCollection("climbingAreas");
         position: [area.data.latitude, area.data.longitude],
         popup: area.data.title,
       }))}
-    />
+    /> -->
   </div>
 </Layout>
