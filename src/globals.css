@@ -4,26 +4,42 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Name: custom color palette
+       Author: Ilias Ism
+       URL: https://gradient.page */
+
+    /* CSS: .bg-gradient { background: var(--gradient) } */
+    --gradient: #166534;
+    --background: 152 98.2% 98.48%;
+    --foreground: 152 6.4% 0.96%;
+
+    --muted: 152 6.4% 92.4%;
+    --muted-foreground: 152 3.2% 42.4%;
+
+    --popover: 152 37.519999999999996% 95.44%;
+    --popover-foreground: 152 6.4% 1.2%;
+
+    --card: 152 37.519999999999996% 95.44%;
+    --card-foreground: 152 6.4% 1.2%;
+
+    --border: 152 11.4% 89.96%;
+    --input: 152 11.4% 89.96%;
+
+    --primary: 152 64% 24%;
+    --primary-foreground: 152 1.28% 92.4%;
+
+    --secondary: 152 15.36% 85.56%;
+    --secondary-foreground: 152 4.84% 12.4%;
+
+    --accent: 152 15.36% 85.56%;
+    --accent-foreground: 152 4.84% 12.4%;
+
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 152 64% 24%;
+
+    --radius: 0.3rem;
   }
 
   .dark {
@@ -37,32 +53,31 @@
     --background: 151 46.15% 3.6%;
     --foreground: 151 7.1% 97.25%;
 
-    --muted: 151 34.08% 13.5%;
+    --muted: 151 37.629999999999995% 13.5%;
     --muted-foreground: 151 7.1% 54.5%;
 
-    --popover: 151 42.28% 5.4%;
+    --popover: 151 37.31% 5.8500000000000005%;
     --popover-foreground: 151 7.1% 97.25%;
 
-    --card: 151 42.28% 5.4%;
+    --card: 151 37.31% 5.8500000000000005%;
     --card-foreground: 151 7.1% 97.25%;
 
-    --border: 151 34.08% 13.5%;
-    --input: 151 34.08% 13.5%;
+    --border: 151 37.629999999999995% 13.5%;
+    --input: 151 37.629999999999995% 13.5%;
 
     --primary: 151 71% 45%;
     --primary-foreground: 151 7.1% 97.25%;
 
-    --secondary: 151 34.08% 13.5%;
+    --secondary: 151 37.629999999999995% 13.5%;
     --secondary-foreground: 151 7.1% 97.25%;
 
-    --accent: 151 34.08% 13.5%;
+    --accent: 151 37.629999999999995% 13.5%;
     --accent-foreground: 151 7.1% 97.25%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 151 7.1% 97.25%;
 
     --ring: 151 71% 45%;
-    --radius: 0.25rem;
   }
 }
 
@@ -78,8 +93,4 @@
 html,
 body {
   @apply w-full h-full overflow-hidden;
-}
-
-body {
-  background-image: url("/bg/topography.svg");
 }

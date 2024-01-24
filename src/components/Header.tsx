@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import { NavMenu } from "./NavMenu";
+import { ModeToggle } from "./ModeToggle";
 
 interface Props {
   pathname: string;
@@ -51,6 +52,7 @@ export const Header: React.FC<Props> = (props) => {
           )}
         >
           <NavMenu pathname={pathname} />
+          <ModeToggle />
         </ul>
       </header>
     </div>
