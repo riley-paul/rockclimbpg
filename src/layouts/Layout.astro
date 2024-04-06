@@ -36,6 +36,7 @@ interface Props {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/mountain.svg" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -45,7 +46,9 @@ interface Props {
 
     <title>Rock Climb PG - New</title>
   </head>
-  <body class="flex flex-col dark:bg-[url('/bg/topography.svg')] bg-[url('/bg/topography-light.svg')]">
+  <body
+    class="flex flex-col dark:bg-[url('/bg/topography.svg')] bg-[url('/bg/topography-light.svg')]"
+  >
     <Header client:load pathname={Astro.url.pathname} />
     <main class="flex-1 overflow-auto">
       <div class="container p-4 grid gap-4">
