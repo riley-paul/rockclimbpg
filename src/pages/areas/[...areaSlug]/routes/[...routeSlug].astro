@@ -11,7 +11,7 @@ interface Props {
 export const getStaticPaths: GetStaticPaths = async () => {
   const routes = await getCollection("climbingRoutes");
   return routes.map((entry) => ({
-    params: { areaSlug: entry.slug, routeSlug: entry.slug },
+    params: { areaSlug: entry.data.area.id, routeSlug: entry.slug },
     props: { entry },
   }));
 };
