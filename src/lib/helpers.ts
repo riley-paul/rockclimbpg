@@ -21,6 +21,11 @@ export const getLinkInfos = () => {
       isActive: (pathname) => pathname === "/",
     },
     {
+      url: "/areas",
+      label: "Climbing Areas",
+      isActive: (pathname) => pathname.startsWith("/areas"),
+    },
+    {
       url: "/resources",
       label: "Resources",
       isActive: (pathname) => pathname.startsWith("/resources"),

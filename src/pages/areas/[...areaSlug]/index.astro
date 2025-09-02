@@ -1,0 +1,56 @@
+---
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+import type { ContentEntryType, GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const climbingAreas = await getCollection("climbingAreas");
+  return climbingAreas.map((entry) => ({
+    params: { areaSlug: entry.slug },
+    props: { entry },
+  }));
+};
+
+interface Props {
+  entry: CollectionEntry<"climbingAreas">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const climbingRoutes = await getCollection(
+  "climbingRoutes",
+  ({ slug }) => slug === entry.slug,
+);
+---
+
+<RootLayout>
+  <MarkdownLayout>
+    <h1>{entry.data.title}</h1>
+
+    <div class="grid gap-4">
+      <div class="prose dark:prose-invert max-w-none p-6">
+        <Content />
+      </div>
+      <div class="prose dark:prose-invert max-w-none">
+        {
+          climbingRoutes.length > 0 && (
+            <>
+              <h2>Routes</h2>
+              <ol>
+                {climbingRoutes.map((route) => (
+                  <li>
+                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                      {route.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </>
+          )
+        }
+      </div>
+    </div>
+  </MarkdownLayout>
+</RootLayout>

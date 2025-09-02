@@ -1,0 +1,35 @@
+---
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+import { getCollection } from "astro:content";
+
+const climbingAreas = await getCollection("climbingAreas");
+---
+
+<RootLayout>
+  <MarkdownLayout>
+    <h1>Climbing Areas</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Distance</th>
+          <th>More Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          climbingAreas.map(({ data, slug }) => (
+            <tr>
+              <td>{data.title}</td>
+              <td>{data.distance_time}</td>
+              <td>
+                <a href={`/areas/${slug}`}>details</a>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </MarkdownLayout>
+</RootLayout>
