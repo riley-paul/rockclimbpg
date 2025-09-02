@@ -17,11 +17,11 @@ const ThemePicker: React.FC = () => {
     <RadixProvider asChild>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
-          <IconButton>
+          <IconButton variant="soft">
             <SunMoonIcon className="size-4" />
           </IconButton>
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
+        <DropdownMenu.Content side="bottom" align="end">
           <DropdownMenu.RadioGroup
             value={theme}
             onValueChange={(v) => setTheme(v as any)}

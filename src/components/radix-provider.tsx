@@ -4,7 +4,14 @@ import { useAppearance } from "@/lib/use-theme";
 
 const RadixProvider: React.FC<ThemeProps> = (props) => {
   const appearance = useAppearance();
-  return <Theme accentColor="grass" appearance={appearance} {...props} />;
+  return (
+    <Theme
+      accentColor="grass"
+      appearance={appearance}
+      radius="large"
+      {...props}
+    />
+  );
 };
 
 export default RadixProvider;

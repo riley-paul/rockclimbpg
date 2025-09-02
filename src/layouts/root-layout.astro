@@ -2,22 +2,24 @@
 import "@radix-ui/themes/styles.css";
 import "@/styles/global.css";
 import RadixProvider from "@/components/radix-provider";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-    </head>
-    <body>
-        <RadixProvider client:load>
-            <div class="bg-accent-10 h-1 w-full"></div>
-            <Header/>
-            <slot />
-        </RadixProvider>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <RadixProvider client:load>
+      <div class="bg-accent-10 h-1 w-full"></div>
+      <Header client:load />
+      <main class="container2">
+        <slot />
+      </main>
+    </RadixProvider>
+  </body>
 </html>

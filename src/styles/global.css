@@ -18,3 +18,7 @@
     --cursor-slider-thumb-active: grabbing;
     --cursor-switch: pointer;
 }
+
+.container2 {
+    @apply max-w-5xl px-4 mx-auto;
+}
