@@ -1,15 +1,18 @@
 ---
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
-import { getCollection } from "astro:content";
+import { getClimbingAreas } from "@/lib/helpers";
 
-const climbingAreas = await getCollection("climbingAreas");
+const climbingAreas = await getClimbingAreas();
 ---
 
 <RootLayout>
   <MarkdownLayout>
     <h1>Climbing Areas</h1>
-    <p>All the climbing areas covered by this site. Visit the dedicated page for each area to see more detailed information.</p>
+    <p>
+      All the climbing areas covered by this site. Visit the dedicated page for
+      each area to see more detailed information.
+    </p>
     <table>
       <thead>
         <tr>
@@ -19,17 +22,15 @@ const climbingAreas = await getCollection("climbingAreas");
       </thead>
       <tbody>
         {
-          climbingAreas
-            .sort((a, b) => a.data.distance_km - b.data.distance_km)
-            .map(({ data, slug }) => (
-              <tr>
-                <td>{data.title}</td>
-                <td>{`${data.distance_km}km (${data.distance_time})`}</td>
-                <td>
-                  <a href={`/areas/${slug}`}>details</a>
-                </td>
-              </tr>
-            ))
+          climbingAreas.map(({ data, slug }) => (
+            <tr>
+              <td>{data.title}</td>
+              <td>{`${data.distance_km}km (${data.distance_time})`}</td>
+              <td>
+                <a href={`/areas/${slug}`}>details</a>
+              </td>
+            </tr>
+          ))
         }
       </tbody>
     </table>

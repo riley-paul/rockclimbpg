@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import type { LinkInfo } from "./types";
 
 export const getResources = async () => {
@@ -12,6 +12,11 @@ export const getResources = async () => {
     name: res.replace(/^.*[\\\/]/, ""),
   }));
   return filenames;
+};
+
+export const getClimbingAreas = async () => {
+  const climbingAreas = await getCollection("climbingAreas");
+  return climbingAreas.sort((a, b) => a.data.distance_km - b.data.distance_km);
 };
 
 export const getAreaInfo = (
@@ -40,27 +45,34 @@ export const getAreaInfo = (
   return result;
 };
 
-export const getLinkInfos = () => {
+export const getLinkInfos = async () => {
+  const climbingAreas = await getClimbingAreas();
+  const resources = await getResources();
+
   const linkInfos: LinkInfo[] = [
     {
       url: "/",
       label: "Home",
-      isActive: (pathname) => pathname === "/",
     },
     {
       url: "/areas",
       label: "Climbing Areas",
-      isActive: (pathname) => pathname.startsWith("/areas"),
+      children: climbingAreas.map((area) => ({
+        url: `/areas/${area.slug}`,
+        label: area.data.title,
+      })),
     },
     {
       url: "/resources",
       label: "Resources",
-      isActive: (pathname) => pathname.startsWith("/resources"),
+      children: resources.map((res) => ({
+        url: res.path,
+        label: res.name.replace(/_/g, " ").replace(".pdf", ""),
+      })),
     },
     {
       url: "/contact",
       label: "Contact",
-      isActive: (pathname) => pathname === "/contact",
     },
   ];
   return linkInfos;
