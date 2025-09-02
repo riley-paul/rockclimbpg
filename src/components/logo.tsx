@@ -4,10 +4,10 @@ import React from "react";
 
 const Logo: React.FC = () => {
   return (
-    <span className="flex items-center gap-1.5">
-      <MountainSnowIcon className="text-accent-10 size-5" />
+    <a href="/" className="flex items-center gap-1.5">
+      <MountainSnowIcon className="text-accent-10 size-6" />
       <Heading size="4"> Rock Climb PG </Heading>
-    </span>
+    </a>
   );
 };
 
