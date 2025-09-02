@@ -3,6 +3,7 @@ import "@radix-ui/themes/styles.css";
 import "@/styles/global.css";
 import RadixProvider from "@/components/radix-provider";
 import Header from "@/components/header";
+import Breadcrumbs from "@/components/breadcrumbs";
 ---
 
 <html lang="en">
@@ -13,11 +14,12 @@ import Header from "@/components/header";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body >
+  <body>
     <RadixProvider client:load>
       <div class="from-accent-10 bg-linear-to-r to-accent-8 h-1 w-full"></div>
       <Header client:load />
-      <main class="container2">
+      <Breadcrumbs client:load />
+      <main class="container2 flex flex-col pt-6">
         <slot />
       </main>
     </RadixProvider>
