@@ -1,12 +1,9 @@
 ---
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
+import { getResources } from "@/lib/helpers";
 
-const resources = await Astro.glob("../../public/resources/*.pdf");
-const filenames = resources.map((res) => ({
-  path: res.default,
-  name: res.default.replace(/^.*[\\\/]/, ""),
-}));
+const resources = await getResources();
 ---
 
 <RootLayout>
@@ -16,7 +13,7 @@ const filenames = resources.map((res) => ({
     <table>
       <tbody>
         {
-          filenames.map(({ path, name }) => (
+          resources.map(({ path, name }) => (
             <tr>
               <td>{name}</td>
               <td>

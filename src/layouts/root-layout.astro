@@ -21,7 +21,7 @@ import Breadcrumbs from "@/components/breadcrumbs";
   <body>
     <RadixProvider client:load>
       <div class="from-accent-10 bg-linear-to-r to-accent-8 h-1 w-full"></div>
-      <Header client:load />
+      <Header client:load pathname={Astro.url.pathname} />
       <Breadcrumbs client:load />
       <main class="container2 pt-6">
         <slot />
