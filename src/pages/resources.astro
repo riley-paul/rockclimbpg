@@ -1,0 +1,38 @@
+---
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+
+const resources = await Astro.glob("../../public/resources/*.pdf");
+const filenames = resources.map((res) => ({
+  path: res.default,
+  name: res.default.replace(/^.*[\\\/]/, ""),
+}));
+---
+
+<RootLayout>
+  <MarkdownLayout>
+    <h1>Resources</h1>
+    <p>A collection of PDFs providing more detail on climbing in the area</p>
+    <table>
+      <tbody>
+        {
+          filenames.map(({ path, name }) => (
+            <tr>
+              <td>{name}</td>
+              <td>
+                <a href={path} target="_blank">
+                  open
+                </a>
+              </td>
+              <td>
+                <a href={path} download>
+                  download
+                </a>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </MarkdownLayout>
+</RootLayout>

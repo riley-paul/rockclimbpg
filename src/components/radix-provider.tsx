@@ -7,7 +7,7 @@ const RadixProvider: React.FC<ThemeProps> = (props) => {
   return (
     <Theme
       accentColor="grass"
-      appearance={appearance}
+      appearance="light"
       radius="large"
       className="bg-[url('/bg/topography-light.svg')]"
       {...props}
