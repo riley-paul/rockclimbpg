@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+    --color-*: initial;
+    --shadow-*: initial;
+}
+
+@import "radix-themes-tw";
+
 .radix-themes {
     --cursor-button: pointer;
     --cursor-checkbox: pointer;
