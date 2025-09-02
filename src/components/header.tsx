@@ -25,7 +25,7 @@ const NavLink: React.FC<{ link: LinkInfo; pathname: string }> = ({
 const Header: React.FC<{ pathname: string }> = ({ pathname }) => {
   const linkInfos = getLinkInfos();
   return (
-    <header className="container2 flex h-16 items-center justify-between">
+    <header className="container2 flex h-20 items-center justify-between">
       <Logo />
       <section className="flex items-center gap-6">
         {linkInfos.map((link) => (
