@@ -1,4 +1,5 @@
 ---
+import AreaInfoTable from "@/components/area-info-table";
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
 import type { ContentEntryType, GetStaticPaths } from "astro";
@@ -28,29 +29,26 @@ const climbingRoutes = await getCollection(
 <RootLayout>
   <MarkdownLayout>
     <h1>{entry.data.title}</h1>
-
-    <div class="grid gap-4">
-      <div class="prose dark:prose-invert max-w-none p-6">
-        <Content />
-      </div>
-      <div class="prose dark:prose-invert max-w-none">
-        {
-          climbingRoutes.length > 0 && (
-            <>
-              <h2>Routes</h2>
-              <ol>
-                {climbingRoutes.map((route) => (
-                  <li>
-                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                      {route.data.title}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </>
-          )
-        }
-      </div>
+    <div class="not-prose py-4">
+      <AreaInfoTable areaInfo={entry} />
     </div>
+
+    <Content />
+    {
+      climbingRoutes.length > 0 && (
+        <>
+          <h2>Routes</h2>
+          <ol>
+            {climbingRoutes.map((route) => (
+              <li>
+                <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                  {route.data.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </>
+      )
+    }
   </MarkdownLayout>
 </RootLayout>
