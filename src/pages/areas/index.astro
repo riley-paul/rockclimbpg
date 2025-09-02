@@ -13,21 +13,22 @@ const climbingAreas = await getCollection("climbingAreas");
       <thead>
         <tr>
           <th>Name</th>
-          <th>Distance</th>
-          <th>More Info</th>
+          <th>Distance from PG</th>
         </tr>
       </thead>
       <tbody>
         {
-          climbingAreas.map(({ data, slug }) => (
-            <tr>
-              <td>{data.title}</td>
-              <td>{data.distance_time}</td>
-              <td>
-                <a href={`/areas/${slug}`}>details</a>
-              </td>
-            </tr>
-          ))
+          climbingAreas
+            .sort((a, b) => a.data.distance_km - b.data.distance_km)
+            .map(({ data, slug }) => (
+              <tr>
+                <td>{data.title}</td>
+                <td>{`${data.distance_km}km (${data.distance_time})`}</td>
+                <td>
+                  <a href={`/areas/${slug}`}>details</a>
+                </td>
+              </tr>
+            ))
         }
       </tbody>
     </table>

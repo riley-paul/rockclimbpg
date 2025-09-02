@@ -11,6 +11,9 @@ const resources = await getResources();
     <h1>Resources</h1>
     <p>A collection of PDFs providing more detail on climbing in the area</p>
     <table>
+      <thead>
+        <tr><th>Name</th></tr>
+      </thead>
       <tbody>
         {
           resources.map(({ path, name }) => (

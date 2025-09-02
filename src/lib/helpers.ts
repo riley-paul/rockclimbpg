@@ -18,12 +18,10 @@ export const getAreaInfo = (
   areaData: CollectionEntry<"climbingAreas">["data"],
 ): { label: string; value: string }[] => {
   const result = [];
-  if (areaData.distance_km && areaData.distance_time) {
-    result.push({
-      label: "Distance from PG",
-      value: `${areaData.distance_km}km (${areaData.distance_time})`,
-    });
-  }
+  result.push({
+    label: "Distance from PG",
+    value: `${areaData.distance_km}km (${areaData.distance_time})`,
+  });
   if (areaData.nearest_town) {
     result.push({ label: "Nearest Town", value: areaData.nearest_town });
   }
