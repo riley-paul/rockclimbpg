@@ -2,7 +2,7 @@
 import AreaInfoTable from "@/components/area-info-table";
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
-import type { ContentEntryType, GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -22,33 +22,42 @@ const { Content } = await entry.render();
 
 const climbingRoutes = await getCollection(
   "climbingRoutes",
-  ({ slug }) => slug === entry.slug,
+  ({ data }) => data.area.id === entry.slug,
 );
 ---
 
 <RootLayout>
   <MarkdownLayout>
     <h1>{entry.data.title}</h1>
+
     <div class="not-prose py-4">
       <AreaInfoTable areaInfo={entry} />
     </div>
 
-    <Content />
     {
       climbingRoutes.length > 0 && (
-        <>
-          <h2>Routes</h2>
-          <ol>
+        <table>
+          <thead>
+            <tr>
+              <th>Route Info</th>
+            </tr>
+          </thead>
+          <tbody>
             {climbingRoutes.map((route) => (
-              <li>
-                <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                  {route.data.title}
-                </a>
-              </li>
+              <tr>
+                <td>{route.data.title}</td>
+                <td>
+                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                    details
+                  </a>
+                </td>
+              </tr>
             ))}
-          </ol>
-        </>
+          </tbody>
+        </table>
       )
     }
+
+    <Content />
   </MarkdownLayout>
 </RootLayout>
