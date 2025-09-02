@@ -1,4 +1,5 @@
 ---
+import ThemePicker from "@/components/theme-picker";
 import RootLayout from "@/layouts/root-layout.astro";
 import { Button } from "@radix-ui/themes";
 ---
@@ -6,4 +7,5 @@ import { Button } from "@radix-ui/themes";
 <RootLayout>
     <h1>Astro</h1>
     <Button>Click me</Button>
+    <ThemePicker client:load />
 </RootLayout>

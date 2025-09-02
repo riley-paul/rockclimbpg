@@ -13,7 +13,7 @@ import RadixProvider from "@/components/radix-provider";
         <title>Astro</title>
     </head>
     <body>
-        <RadixProvider>
+        <RadixProvider client:load>
             <slot />
         </RadixProvider>
     </body>
