@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./logo";
-import { Button, Link } from "@radix-ui/themes";
+import { Link } from "@radix-ui/themes";
 
 type LinkInfo = {
   url: string;
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
   return (
     <header className="container2 flex h-16 items-center justify-between">
       <Logo />
-      <section className="flex items-center gap-4">
+      <section className="flex items-center gap-6">
         {linkInfos.map((link) => (
           <NavLink key={link.url} link={link} />
         ))}
