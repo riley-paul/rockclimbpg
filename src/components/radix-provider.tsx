@@ -9,6 +9,7 @@ const RadixProvider: React.FC<ThemeProps> = (props) => {
       accentColor="grass"
       appearance={appearance}
       radius="large"
+      className="bg-[url('/bg/topography-light.svg')]"
       {...props}
     />
   );
