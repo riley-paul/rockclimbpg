@@ -2,6 +2,7 @@
 import "@radix-ui/themes/styles.css";
 import "@/styles/global.css";
 import RadixProvider from "@/components/radix-provider";
+import Header from "@/components/header";
 ---
 
 <html lang="en">
@@ -14,6 +15,8 @@ import RadixProvider from "@/components/radix-provider";
     </head>
     <body>
         <RadixProvider client:load>
+            <div class="bg-accent-10 h-1 w-full"></div>
+            <Header/>
             <slot />
         </RadixProvider>
     </body>
