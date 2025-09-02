@@ -1,11 +1,33 @@
 ---
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
+import { TextField, TextArea, Button, Text } from "@radix-ui/themes";
+import { SendIcon } from "lucide-react";
 ---
 
 <RootLayout>
   <MarkdownLayout>
     <h1>Contact</h1>
     <p>Have some updated beta? Drop us a line and we'll get it on the site</p>
+    <form class="grid gap-6 not-prose">
+      <Text as="label" size="2" weight="medium">
+        Name
+        <TextField.Root placeholder="Alex Honnold" required />
+      </Text>
+      <Text as="label" size="2" weight="medium">
+        Email
+        <TextField.Root placeholder="alex@freesolo.com" type="email" required />
+      </Text>
+      <Text as="label" size="2" weight="medium">
+        Message
+        <TextArea placeholder="What's with all the bolts?" required />
+      </Text>
+      <footer class="flex justify-end">
+        <Button type="submit">
+          <span>Submit</span>
+          <SendIcon className="size-4" />
+        </Button>
+      </footer>
+    </form>
   </MarkdownLayout>
 </RootLayout>
