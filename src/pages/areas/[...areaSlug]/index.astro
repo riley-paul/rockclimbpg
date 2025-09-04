@@ -1,5 +1,6 @@
 ---
 import AreaInfoTable from "@/components/area-info-table";
+import AreaMap from "@/components/area-map";
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
 import type { GetStaticPaths } from "astro";
@@ -33,6 +34,8 @@ const climbingRoutes = await getCollection(
     <div class="not-prose py-4">
       <AreaInfoTable areaInfo={entry} />
     </div>
+
+    <AreaMap areaInfo={entry} />
 
     {
       climbingRoutes.length > 0 && (
