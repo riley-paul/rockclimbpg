@@ -58,13 +58,13 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
         })}
 
         <NavigationMenu.Indicator className="data-[state=hidden]:animate-out fade-out data-[state=visible]:animate-in fade-in top-full z-10 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]">
-          <div className="bg-background border-gray-7 relative top-[70%] size-2.5 rotate-45 border" />
+          <div className="bg-gray-6 relative top-[70%] size-2.5 rotate-45" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
       <div className="absolute top-full left-0 flex w-full justify-center perspective-[2000px]">
         <Card asChild size="2">
-          <NavigationMenu.Viewport className="data-[state=closed]:animate-out fade-out data-[state=open]:animate-in fade-in bg-panel-solid relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]" />
+          <NavigationMenu.Viewport className="data-[state=closed]:animate-out fade-out data-[state=open]:animate-in fade-in relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]" />
         </Card>
       </div>
     </NavigationMenu.Root>
