@@ -20,7 +20,7 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
           const isActive = getIsActiveUrl(linkInfo.url, pathname);
           if (linkInfo.children) {
             return (
-              <NavigationMenu.Item>
+              <NavigationMenu.Item key={linkInfo.url}>
                 <NavigationMenu.Trigger className="group flex items-center justify-between gap-1">
                   <NavigationMenu.Link asChild>
                     <Link
@@ -43,10 +43,9 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                     {linkInfo.children.map((child) => {
                       const isActive = getIsActiveUrl(child.url, pathname);
                       return (
-                        <li className="w-full">
+                        <li key={child.url} className="w-full">
                           <NavigationMenu.Link
                             asChild
-                            key={child.url}
                             color={isActive ? ACCENT_COLOR : "gray"}
                           >
                             <Button
@@ -67,7 +66,7 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
           }
 
           return (
-            <NavigationMenu.Item>
+            <NavigationMenu.Item key={linkInfo.url}>
               <NavigationMenu.Link asChild>
                 <Link
                   size="2"
