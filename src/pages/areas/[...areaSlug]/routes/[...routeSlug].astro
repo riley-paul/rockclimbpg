@@ -20,7 +20,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<RootLayout>
+<RootLayout title={entry.data.title}>
   <MarkdownLayout>
     <h1>
       {entry.data.title}
