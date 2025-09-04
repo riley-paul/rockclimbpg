@@ -5,7 +5,15 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
-import { Button, Card, IconButton, Link, Portal, Text } from "@radix-ui/themes";
+import {
+  Button,
+  Card,
+  IconButton,
+  Link,
+  Portal,
+  Text,
+  VisuallyHidden,
+} from "@radix-ui/themes";
 import { getIsActiveUrl } from "@/lib/utils";
 import { ACCENT_COLOR } from "@/lib/constants";
 import RadixProvider from "./radix-provider";
@@ -107,6 +115,11 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
           <RadixProvider>
             <Dialog.Overlay className="fixed inset-0" />
             <Dialog.Content className="bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fade-in fade-out fixed inset-0 top-1 overflow-auto outline-none">
+              <VisuallyHidden>
+                <Dialog.Title>Nav Menu</Dialog.Title>
+                <Dialog.Description>Navigation Menu</Dialog.Description>
+              </VisuallyHidden>
+
               <header className="container2 fixed right-0 flex h-20 items-center justify-end">
                 <Dialog.Close asChild>
                   <IconButton variant="soft" color="gray" radius="full">
@@ -119,7 +132,7 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
                   {linkInfos.map((linkInfo) => {
                     const isActive = getIsActiveUrl(linkInfo.url, pathname);
                     return (
-                      <li className="">
+                      <li key={linkInfo.url}>
                         <Button
                           variant="ghost"
                           asChild
