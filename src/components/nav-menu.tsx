@@ -8,7 +8,6 @@ import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
 import { Button, Card, IconButton, Link, Portal } from "@radix-ui/themes";
 import { getIsActiveUrl } from "@/lib/utils";
 import { ACCENT_COLOR } from "@/lib/constants";
-import { useMediaQuery } from "usehooks-ts";
 import RadixProvider from "./radix-provider";
 
 type Props = { pathname: string; linkInfos: LinkInfo[] };
