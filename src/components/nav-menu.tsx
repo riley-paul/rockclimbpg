@@ -102,11 +102,11 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
             <MenuIcon className="size-4" />
           </IconButton>
         </Dialog.Trigger>
-        <Portal>
+        <Dialog.Portal>
           <RadixProvider>
             <Dialog.Overlay className="fixed inset-0" />
             <Dialog.Content className="bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fade-in fade-out fixed inset-0 top-1 overflow-auto outline-none">
-              <header className="container2 absolute inset-0 top-1 flex h-20 items-center justify-end">
+              <header className="container2 fixed right-0 flex h-20 items-center justify-end">
                 <Dialog.Close asChild>
                   <IconButton variant="soft" color="gray" radius="full">
                     <XIcon className="size-4" />
@@ -155,7 +155,7 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
               </article>
             </Dialog.Content>
           </RadixProvider>
-        </Portal>
+        </Dialog.Portal>
       </Dialog.Root>
     </div>
   );
