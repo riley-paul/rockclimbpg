@@ -128,21 +128,22 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
                 </Dialog.Close>
               </header>
               <article className="container2 py-6">
-                <ul className="grid gap-2">
+                <ul className="grid gap-1">
                   {linkInfos.map((linkInfo) => {
                     const isActive = getIsActiveUrl(linkInfo.url, pathname);
                     return (
-                      <li key={linkInfo.url}>
+                      <li key={linkInfo.url} className="grid gap-1">
                         <Button
                           variant="ghost"
                           asChild
-                          className="flex-1 justify-start! text-left!"
+                          size="3"
+                          className="m-0! flex-1 justify-start! text-left!"
                           color={isActive ? ACCENT_COLOR : "gray"}
                         >
                           <a href={linkInfo.url}>{linkInfo.label}</a>
                         </Button>
                         {linkInfo.children && (
-                          <ul className="border-gray-6 mt-1 ml-1 grid gap-1 border-l pl-4">
+                          <ul className="border-gray-6 ml-4 grid gap-1 border-l pl-2">
                             {linkInfo.children.map((child) => {
                               const isActive = getIsActiveUrl(
                                 child.url,
@@ -154,6 +155,7 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
                                     asChild
                                     variant="ghost"
                                     color={isActive ? ACCENT_COLOR : "gray"}
+                                    className="m-0!"
                                   >
                                     <a href={child.url}>{child.label}</a>
                                   </Button>
