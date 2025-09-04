@@ -1,20 +1,10 @@
 ---
-import AreaTable from "@/components/AreaTable.astro";
-import Layout from "@/layouts/Layout.astro";
-import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
-import type { ContentEntryType, GetStaticPaths } from "astro";
+import AreaInfoTable from "@/components/area-info-table";
+import AreaMap from "@/components/area-map";
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+import type { GetStaticPaths } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-import { Map } from "@/components/Map";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
@@ -33,49 +23,44 @@ const { Content } = await entry.render();
 
 const climbingRoutes = await getCollection(
   "climbingRoutes",
-  ({ data }) => data.area.slug === entry.slug
+  ({ data }) => data.area.id === entry.slug,
 );
 ---
 
-<Layout>
-  <PageHeaderContainer>
+<RootLayout>
+  <MarkdownLayout>
     <h1>{entry.data.title}</h1>
-  </PageHeaderContainer>
-  <!-- <Map
-    client:only
-    markers={[
-      {
-        popup: entry.data.title,
-        position: [entry.data.latitude, entry.data.longitude],
-      },
-    ]}
-  /> -->
-  <div class="grid gap-4">
-    <Card>
-      <AreaTable entry={entry} />
-    </Card>
-    <Card>
-      <div class="prose dark:prose-invert max-w-none p-6">
-        <Content />
-      </div>
-    </Card>
-    <div class="prose dark:prose-invert max-w-none">
-      {
-        climbingRoutes.length > 0 && (
-          <>
-            <h2>Routes</h2>
-            <ol>
-              {climbingRoutes.map((route) => (
-                <li>
-                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                    {route.data.title}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </>
-        )
-      }
+
+    <div class="not-prose py-4">
+      <AreaInfoTable areaInfo={entry} />
     </div>
-  </div>
-</Layout>
+
+    <AreaMap areaInfo={entry} />
+
+    {
+      climbingRoutes.length > 0 && (
+        <table>
+          <thead>
+            <tr>
+              <th>Route Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            {climbingRoutes.map((route) => (
+              <tr>
+                <td>{route.data.title}</td>
+                <td>
+                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                    details
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )
+    }
+
+    <Content />
+  </MarkdownLayout>
+</RootLayout>

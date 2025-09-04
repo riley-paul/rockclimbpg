@@ -1,42 +1,38 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+import { getResources } from "@/lib/helpers";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
-
-const resources = await Astro.glob("../../public/resources/*.pdf");
-const filenames = resources.map((res) => ({
-  path: res.default,
-  name: res.default.replace(/^.*[\\\/]/, ""),
-}));
+const resources = await getResources();
 ---
 
-<Layout>
-  <Card>
-    <CardHeader>
-      <CardTitle>Resources</CardTitle>
-      <CardDescription>
-        A collection of PDFs providing more detail on
-        climbing in the area
-      </CardDescription>
-    </CardHeader>
-    <CardContent className="prose dark:prose-invert max-w-none">
-      <ul>
+<RootLayout>
+  <MarkdownLayout>
+    <h1>Resources</h1>
+    <p>A collection of PDFs providing more detail on climbing in the area</p>
+    <table>
+      <thead>
+        <tr><th>Name</th></tr>
+      </thead>
+      <tbody>
         {
-          filenames.map((name) => (
-            <li>
-              <a href={name.path}>{name.name}</a>
-            </li>
+          resources.map(({ path, name }) => (
+            <tr>
+              <td>{name}</td>
+              <td>
+                <a href={path} target="_blank">
+                  open
+                </a>
+              </td>
+              <td>
+                <a href={path} download>
+                  download
+                </a>
+              </td>
+            </tr>
           ))
         }
-      </ul>
-    </CardContent>
-  </Card>
-</Layout>
+      </tbody>
+    </table>
+  </MarkdownLayout>
+</RootLayout>

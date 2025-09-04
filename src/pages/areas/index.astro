@@ -1,40 +1,38 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import MarkdownLayout from "@/layouts/markdown-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
+import { getClimbingAreas } from "@/lib/helpers";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import MapImage from "@/components/MapImage.astro";
-import AreaCard from "@/components/AreaCard.astro";
-import PageHeaderContainer from "@/layouts/PageHeaderContainer.astro";
-
-const climbingAreas = await getCollection("climbingAreas");
+const climbingAreas = await getClimbingAreas();
 ---
 
-<Layout>
-  <Card>
-    <CardHeader>
-      <CardTitle>Climbing Areas</CardTitle>
-      <CardDescription>
-        Click on an area to see more information
-      </CardDescription>
-    </CardHeader>
-    <CardContent className="prose dark:prose-invert max-w-none">
-      <ul>
+<RootLayout>
+  <MarkdownLayout>
+    <h1>Climbing Areas</h1>
+    <p>
+      All the climbing areas covered by this site. Visit the dedicated page for
+      each area to see more detailed information.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Distance from PG</th>
+        </tr>
+      </thead>
+      <tbody>
         {
-          climbingAreas.map((i) => (
-            <li>
-              <a href={`/areas/${i.slug}`}>{i.data.title}</a>
-            </li>
+          climbingAreas.map(({ data, slug }) => (
+            <tr>
+              <td>{data.title}</td>
+              <td>{`${data.distance_km}km (${data.distance_time})`}</td>
+              <td>
+                <a href={`/areas/${slug}`}>details</a>
+              </td>
+            </tr>
           ))
         }
-      </ul>
-    </CardContent>
-  </Card>
-</Layout>
+      </tbody>
+    </table>
+  </MarkdownLayout>
+</RootLayout>
