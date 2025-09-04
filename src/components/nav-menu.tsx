@@ -46,7 +46,7 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                     />
                   </Text>
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="absolute top-0 left-0 w-full min-w-[250px] p-4 sm:w-auto">
+                <NavigationMenu.Content className="absolute top-0 left-0 w-max min-w-[250px] p-4">
                   <ul className="grid gap-2">
                     {linkInfo.children.map((child) => {
                       const isActive = getIsActiveUrl(child.url, pathname);
@@ -93,7 +93,7 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      <div className="absolute top-full left-0 flex w-full justify-center perspective-[2000px]">
+      <div className="absolute top-full left-0 z-30 flex w-full justify-center perspective-[2000px]">
         <Card asChild size="2">
           <NavigationMenu.Viewport className="data-[state=closed]:animate-out fade-out data-[state=open]:animate-in fade-in relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]" />
         </Card>

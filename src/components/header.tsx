@@ -17,7 +17,7 @@ const Header: React.FC<{ pathname: string; linkInfos: LinkInfo[] }> = ({
         <NavMenu pathname={pathname} linkInfos={linkInfos} />
       </header>
       <div className="container2">
-        <Separator size="4" color={ACCENT_COLOR} className="opacity-50" />
+        <Separator size="4" color={ACCENT_COLOR} className="opacity-70" />
       </div>
     </>
   );
