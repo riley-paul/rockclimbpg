@@ -25,3 +25,8 @@
 .container2 {
   @apply mx-auto max-w-5xl px-6;
 }
+
+body {
+  background-color: color(display-p3 0.067 0.067 0.067);
+  background-image: url("/bg/topography.svg");
+}

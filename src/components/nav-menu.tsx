@@ -108,7 +108,7 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
     <div className="block sm:hidden">
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <IconButton variant="surface" aria-label="Menu">
+          <IconButton variant="surface" aria-label="Menu" size="3">
             <MenuIcon className="size-4" />
           </IconButton>
         </Dialog.Trigger>
@@ -123,7 +123,12 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
 
               <header className="container2 fixed right-0 flex h-20 items-center justify-end">
                 <Dialog.Close asChild>
-                  <IconButton variant="soft" color="gray" radius="full">
+                  <IconButton
+                    variant="soft"
+                    color="gray"
+                    radius="full"
+                    size="3"
+                  >
                     <XIcon className="size-4" />
                   </IconButton>
                 </Dialog.Close>

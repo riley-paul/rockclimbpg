@@ -10,7 +10,7 @@ const RadixProvider: React.FC<ThemeProps> = (props) => {
       appearance="dark"
       radius="large"
       panelBackground="solid"
-      className="bg-[url('/bg/topography.svg')]"
+      hasBackground={false}
       {...props}
     />
   );
