@@ -3,6 +3,7 @@ import React from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { Button, Card, Link } from "@radix-ui/themes";
+import { getIsActiveUrl } from "@/lib/utils";
 
 type Props = { pathname: string; linkInfos: LinkInfo[] };
 
@@ -11,12 +12,17 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
     <NavigationMenu.Root className="relative">
       <NavigationMenu.List className="flex list-none items-baseline gap-6">
         {linkInfos.map((linkInfo) => {
+          const isActive = getIsActiveUrl(linkInfo.url, pathname);
           if (linkInfo.children) {
             return (
               <NavigationMenu.Item>
                 <NavigationMenu.Trigger className="group flex items-center justify-between gap-1">
                   <NavigationMenu.Link asChild>
-                    <Link size="2" href={linkInfo.url}>
+                    <Link
+                      size="2"
+                      href={linkInfo.url}
+                      color={isActive ? undefined : "gray"}
+                    >
                       {linkInfo.label}
                     </Link>
                   </NavigationMenu.Link>
@@ -27,19 +33,26 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className="absolute top-0 left-0 w-full min-w-[250px] p-4 sm:w-auto">
                   <ul className="grid gap-2">
-                    {linkInfo.children.map((child) => (
-                      <li className="w-full">
-                        <NavigationMenu.Link asChild key={child.url}>
-                          <Button
+                    {linkInfo.children.map((child) => {
+                      const isActive = getIsActiveUrl(child.url, pathname);
+                      return (
+                        <li className="w-full">
+                          <NavigationMenu.Link
                             asChild
-                            variant="ghost"
-                            className="w-full! justify-start! text-left!"
+                            key={child.url}
+                            color={isActive ? undefined : "gray"}
                           >
-                            <a href={child.url}>{child.label}</a>
-                          </Button>
-                        </NavigationMenu.Link>
-                      </li>
-                    ))}
+                            <Button
+                              asChild
+                              variant="ghost"
+                              className="w-full! justify-start! text-left!"
+                            >
+                              <a href={child.url}>{child.label}</a>
+                            </Button>
+                          </NavigationMenu.Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </NavigationMenu.Content>
               </NavigationMenu.Item>
@@ -49,7 +62,11 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
           return (
             <NavigationMenu.Item>
               <NavigationMenu.Link asChild>
-                <Link size="2" href={linkInfo.url}>
+                <Link
+                  size="2"
+                  href={linkInfo.url}
+                  color={isActive ? undefined : "gray"}
+                >
                   {linkInfo.label}
                 </Link>
               </NavigationMenu.Link>
