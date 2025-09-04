@@ -4,6 +4,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { Button, Card, Link } from "@radix-ui/themes";
 import { getIsActiveUrl } from "@/lib/utils";
+import { ACCENT_COLOR } from "@/lib/constants";
 
 type Props = { pathname: string; linkInfos: LinkInfo[] };
 
@@ -21,7 +22,7 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                     <Link
                       size="2"
                       href={linkInfo.url}
-                      color={isActive ? undefined : "gray"}
+                      color={isActive ? ACCENT_COLOR : "gray"}
                     >
                       {linkInfo.label}
                     </Link>
@@ -40,7 +41,7 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                           <NavigationMenu.Link
                             asChild
                             key={child.url}
-                            color={isActive ? undefined : "gray"}
+                            color={isActive ? ACCENT_COLOR : "gray"}
                           >
                             <Button
                               asChild
@@ -65,7 +66,7 @@ const NavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                 <Link
                   size="2"
                   href={linkInfo.url}
-                  color={isActive ? undefined : "gray"}
+                  color={isActive ? ACCENT_COLOR : "gray"}
                 >
                   {linkInfo.label}
                 </Link>

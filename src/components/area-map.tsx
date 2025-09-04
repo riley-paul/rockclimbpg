@@ -12,7 +12,12 @@ const AreaMap: React.FC<Props> = ({
 }) => {
   return (
     <iframe
-      style={{ border: 0, width: "100%", height: "300px" }}
+      style={{
+        border: 0,
+        width: "100%",
+        height: "300px",
+        borderRadius: "0.5rem",
+      }}
       loading="lazy"
       allowFullScreen
       referrerPolicy="no-referrer-when-downgrade"
