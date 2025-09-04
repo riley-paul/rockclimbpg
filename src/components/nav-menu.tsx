@@ -11,6 +11,7 @@ import {
   IconButton,
   Link,
   Portal,
+  Separator,
   Text,
   VisuallyHidden,
 } from "@radix-ui/themes";
@@ -128,7 +129,7 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
                 </Dialog.Close>
               </header>
               <article className="container2 py-6">
-                <ul className="grid gap-1">
+                <ul className="-ml-3 grid gap-1">
                   {linkInfos.map((linkInfo) => {
                     const isActive = getIsActiveUrl(linkInfo.url, pathname);
                     return (
@@ -143,26 +144,32 @@ const MobileNavMenu: React.FC<Props> = ({ linkInfos, pathname }) => {
                           <a href={linkInfo.url}>{linkInfo.label}</a>
                         </Button>
                         {linkInfo.children && (
-                          <ul className="border-gray-6 ml-4 grid gap-1 border-l pl-2">
-                            {linkInfo.children.map((child) => {
-                              const isActive = getIsActiveUrl(
-                                child.url,
-                                pathname,
-                              );
-                              return (
-                                <li className="w-full" key={child.url}>
+                          <div className="flex pl-3">
+                            <div className="px-2">
+                              <Separator orientation="vertical" size="4" />
+                            </div>
+                            <ul className="grid w-full gap-1">
+                              {linkInfo.children.map((child) => {
+                                const isActive = getIsActiveUrl(
+                                  child.url,
+                                  pathname,
+                                );
+                                return (
                                   <Button
+                                    key={child.url}
                                     asChild
                                     variant="ghost"
                                     color={isActive ? ACCENT_COLOR : "gray"}
-                                    className="m-0!"
+                                    className="m-0! justify-start! text-left!"
                                   >
-                                    <a href={child.url}>{child.label}</a>
+                                    <a href={child.url}>
+                                      <li>{child.label}</li>
+                                    </a>
                                   </Button>
-                                </li>
-                              );
-                            })}
-                          </ul>
+                                );
+                              })}
+                            </ul>
+                          </div>
                         )}
                       </li>
                     );
