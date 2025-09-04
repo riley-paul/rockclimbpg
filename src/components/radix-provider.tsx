@@ -7,9 +7,10 @@ const RadixProvider: React.FC<ThemeProps> = (props) => {
     <Theme
       accentColor={ACCENT_COLOR}
       grayColor="gray"
-      appearance="light"
+      appearance="dark"
       radius="large"
-      className="bg-[url('/bg/topography-light.svg')]"
+      panelBackground="solid"
+      className="bg-[url('/bg/topography.svg')]"
       {...props}
     />
   );

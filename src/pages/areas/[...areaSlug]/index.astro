@@ -31,33 +31,30 @@ const climbingRoutes = await getCollection(
   <MarkdownLayout>
     <h1>{entry.data.title}</h1>
 
-    <div class="not-prose py-4">
+    <div class="not-prose py-4 grid gap-12">
       <AreaInfoTable areaInfo={entry} />
+      <AreaMap areaInfo={entry} />
     </div>
-
-    <AreaMap areaInfo={entry} />
 
     {
       climbingRoutes.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>Route Info</th>
-            </tr>
-          </thead>
-          <tbody>
-            {climbingRoutes.map((route) => (
-              <tr>
-                <td>{route.data.title}</td>
-                <td>
-                  <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
-                    details
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <>
+          <h2>Routes</h2>
+          <table>
+            <tbody>
+              {climbingRoutes.map((route) => (
+                <tr>
+                  <td>{route.data.title}</td>
+                  <td>
+                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                      details
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
       )
     }
 

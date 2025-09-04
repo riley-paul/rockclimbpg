@@ -10,7 +10,7 @@ const Header: React.FC<{ pathname: string; linkInfos: LinkInfo[] }> = ({
   return (
     <>
       <div className="from-accent-10 to-accent-8 sticky top-0 h-1 w-full bg-linear-to-r"></div>
-      <header className="container2 flex h-20 items-center justify-between gap-6">
+      <header className="container2 border-accent-5 flex h-20 items-center justify-between gap-6 border-b">
         <Logo />
         <NavMenu pathname={pathname} linkInfos={linkInfos} />
       </header>

@@ -5,7 +5,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
-import { Button, Card, IconButton, Link, Portal } from "@radix-ui/themes";
+import { Button, Card, IconButton, Link, Portal, Text } from "@radix-ui/themes";
 import { getIsActiveUrl } from "@/lib/utils";
 import { ACCENT_COLOR } from "@/lib/constants";
 import RadixProvider from "./radix-provider";
@@ -31,10 +31,12 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                       {linkInfo.label}
                     </Link>
                   </NavigationMenu.Link>
-                  <ChevronDownIcon
-                    className="text-accent-10 relative size-3 transition-transform ease-in group-data-[state=open]:-rotate-180"
-                    aria-hidden
-                  />
+                  <Text color={isActive ? ACCENT_COLOR : "gray"}>
+                    <ChevronDownIcon
+                      className="relative size-3 transition-transform ease-in group-data-[state=open]:-rotate-180"
+                      aria-hidden
+                    />
+                  </Text>
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className="absolute top-0 left-0 w-full min-w-[250px] p-4 sm:w-auto">
                   <ul className="grid gap-2">
