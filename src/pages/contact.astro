@@ -10,15 +10,15 @@ import { SendIcon } from "lucide-react";
     <h1>Contact</h1>
     <p>Have some updated beta? Drop us a line and we'll get it on the site</p>
     <form class="grid gap-6 not-prose">
-      <Text as="label" size="2" weight="medium">
+      <Text as="label" size="2" weight="medium" className="grid gap-2">
         Name
         <TextField.Root placeholder="Alex Honnold" required />
       </Text>
-      <Text as="label" size="2" weight="medium">
+      <Text as="label" size="2" weight="medium" className="grid gap-2">
         Email
         <TextField.Root placeholder="alex@freesolo.com" type="email" required />
       </Text>
-      <Text as="label" size="2" weight="medium">
+      <Text as="label" size="2" weight="medium" className="grid gap-2">
         Message
         <TextArea placeholder="What's with all the bolts?" required />
       </Text>

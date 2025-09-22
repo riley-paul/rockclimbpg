@@ -47,7 +47,7 @@ const DesktopNavMenu: React.FC<Props> = ({ pathname, linkInfos }) => {
                     />
                   </Text>
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="absolute top-0 left-0 w-max min-w-[250px] p-4">
+                <NavigationMenu.Content className="absolute top-0 left-0 w-max min-w-[250px] p-4 py-2 pt-3">
                   <ul className="grid gap-2">
                     {linkInfo.children.map((child) => {
                       const isActive = getIsActiveUrl(child.url, pathname);
