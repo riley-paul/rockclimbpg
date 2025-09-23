@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: riley-paul/rockclimbpg
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "areas"
+    label: "Areas"
+    folder: "content/areas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
