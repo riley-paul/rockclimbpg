@@ -13,5 +13,21 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Title", name: title, widget: string }
+      - { label: "Distance (km)", name: distance_km, widget: number }
+      - { label: "Distance (time)", name: distance_time, widget: string }
+      - {
+          label: "Nearest Town",
+          name: nearest_town,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: "Hike Duration",
+          name: hike_duration,
+          widget: string,
+          required: false,
+        }
+      - { label: "Height", name: height, widget: string, required: false }
+      - { label: "Type", name: type, widget: string, required: false }
+      - { label: "Climbs", name: climbs, widget: string, required: false }
