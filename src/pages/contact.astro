@@ -10,22 +10,27 @@ import { SendIcon } from "lucide-react";
     <h1>Contact</h1>
     <p>Have some updated beta? Drop us a line and we'll get it on the site</p>
     <form
-      action="https://api.web3forms.com/submit"
+      action="https://contactulator.rileys-projects.com/contact"
       method="POST"
       class="grid gap-6 not-prose"
     >
       <input
         type="hidden"
         name="access_key"
-        value="c75198ff-0fbb-4e0b-913c-d2b27c8e9b1d"
+        value="324afd7e-4d6b-4543-a478-0d32a4fb9452"
       />
       <Text as="label" size="2" weight="medium" className="grid gap-2">
         Name
-        <TextField.Root placeholder="Alex Honnold" required />
+        <TextField.Root name="name" placeholder="Alex Honnold" required />
       </Text>
       <Text as="label" size="2" weight="medium" className="grid gap-2">
         Email
-        <TextField.Root placeholder="alex@freesolo.com" type="email" required />
+        <TextField.Root
+          name="email"
+          placeholder="alex@freesolo.com"
+          type="email"
+          required
+        />
       </Text>
       <Text as="label" size="2" weight="medium" className="grid gap-2">
         Message
