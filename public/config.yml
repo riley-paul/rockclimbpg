@@ -31,3 +31,5 @@ collections:
       - { label: "Height", name: height, widget: string, required: false }
       - { label: "Type", name: type, widget: string, required: false }
       - { label: "Climbs", name: climbs, widget: string, required: false }
+      - { label: "Location", name: location, widget: map }
+      - { label: Body, name: body, widget: markdown }

@@ -9,7 +9,16 @@ import { SendIcon } from "lucide-react";
   <MarkdownLayout>
     <h1>Contact</h1>
     <p>Have some updated beta? Drop us a line and we'll get it on the site</p>
-    <form class="grid gap-6 not-prose">
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="grid gap-6 not-prose"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="c75198ff-0fbb-4e0b-913c-d2b27c8e9b1d"
+      />
       <Text as="label" size="2" weight="medium" className="grid gap-2">
         Name
         <TextField.Root placeholder="Alex Honnold" required />
@@ -20,7 +29,11 @@ import { SendIcon } from "lucide-react";
       </Text>
       <Text as="label" size="2" weight="medium" className="grid gap-2">
         Message
-        <TextArea placeholder="What's with all the bolts?" required />
+        <TextArea
+          name="message"
+          placeholder="What's with all the bolts?"
+          required
+        />
       </Text>
       <footer class="flex justify-end">
         <Button type="submit" variant="surface">
