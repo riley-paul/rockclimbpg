@@ -2,6 +2,7 @@
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
 import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -11,13 +12,13 @@ interface Props {
 export const getStaticPaths: GetStaticPaths = async () => {
   const routes = await getCollection("climbingRoutes");
   return routes.map((entry) => ({
-    params: { areaSlug: entry.data.area.id, routeSlug: entry.slug },
+    params: { areaSlug: entry.data.area.id, routeSlug: entry.id },
     props: { entry },
   }));
 };
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <RootLayout title={entry.data.title}>

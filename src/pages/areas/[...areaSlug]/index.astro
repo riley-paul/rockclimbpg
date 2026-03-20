@@ -4,12 +4,13 @@ import AreaMap from "@/components/area-map";
 import MarkdownLayout from "@/layouts/markdown-layout.astro";
 import RootLayout from "@/layouts/root-layout.astro";
 import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const climbingAreas = await getCollection("climbingAreas");
   return climbingAreas.map((entry) => ({
-    params: { areaSlug: entry.slug },
+    params: { areaSlug: entry.id },
     props: { entry },
   }));
 };
@@ -19,12 +20,13 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
 
 const climbingRoutes = await getCollection(
   "climbingRoutes",
-  ({ data }) => data.area.id === entry.slug,
+  ({ data }) => data.area.id === entry.id,
 );
+
+const { Content } = await render(entry);
 ---
 
 <RootLayout title={entry.data.title}>
@@ -46,7 +48,7 @@ const climbingRoutes = await getCollection(
                 <tr>
                   <td>{route.data.title}</td>
                   <td>
-                    <a href={`/areas/${entry.slug}/routes/${route.slug}`}>
+                    <a href={`/areas/${entry.id}/routes/${route.id}`}>
                       details
                     </a>
                   </td>

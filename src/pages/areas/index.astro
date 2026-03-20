@@ -44,12 +44,12 @@ const climbingAreas = await getClimbingAreas();
       </thead>
       <tbody>
         {
-          climbingAreas.map(({ data, slug }) => (
+          climbingAreas.map(({ data, id }) => (
             <tr>
               <td>{data.title}</td>
               <td>{`${data.distance_km}km (${data.distance_time})`}</td>
               <td>
-                <a href={`/areas/${slug}`}>details</a>
+                <a href={`/areas/${id}`}>details</a>
               </td>
             </tr>
           ))

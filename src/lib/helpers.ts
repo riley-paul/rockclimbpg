@@ -58,7 +58,7 @@ export const getLinkInfos = async () => {
       url: "/areas",
       label: "Climbing Areas",
       children: climbingAreas.map((area) => ({
-        url: `/areas/${area.slug}`,
+        url: `/areas/${area.id}`,
         label: area.data.title,
       })),
     },

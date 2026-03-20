@@ -1,7 +1,9 @@
-import { z, reference, defineCollection } from "astro:content";
+import { reference, defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 const climbingAreas = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/climbingAreas" }),
   schema: z.object({
     title: z.string(),
     latitude: z.number(),
@@ -17,7 +19,7 @@ const climbingAreas = defineCollection({
 });
 
 const climbingRoutes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/climbingRoutes" }),
   schema: z.object({
     title: z.string(),
     area: reference("climbingAreas"),
